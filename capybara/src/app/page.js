@@ -2,11 +2,9 @@ import Image from 'next/image'
 import styles from './page.module.css'
 import BasicSelect from './BasicSelect'
 import BasicDatePicker from './BasicDatePicker'
-import { Box, Select } from '@mui/material'
 import Grid from '@mui/material/Grid'
 import { Select } from '@mui/material'
 import React from 'react';
-import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import StyledBox from './StyledBox';
@@ -53,7 +51,7 @@ export default function Home() {
             </Grid>
 
         <Grid container spacing = {2} justifyContent = "center">
-            <Grid item xs={3}>
+              <Grid item xs={3}>
                   <BasicSelect> </BasicSelect>
                 </Grid>
                 <Grid item xs={3}>
@@ -65,12 +63,11 @@ export default function Home() {
                 <Grid item xs={3}>
                   <BasicSelect> </BasicSelect>
                 </Grid>
-            </Grid>
-            
+          </Grid>
         </StyledBox>
         </Box>
-     </StyledBox>
-</Grid>
+  </Grid>
+  </StyledBox> 
 
       <BasicSelect> </BasicSelect>
       <BasicDatePicker></BasicDatePicker>
