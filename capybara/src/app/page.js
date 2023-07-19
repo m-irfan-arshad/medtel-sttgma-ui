@@ -2,7 +2,8 @@ import Image from 'next/image'
 import styles from './page.module.css'
 import BasicSelect from './BasicSelect'
 import BasicDatePicker from './BasicDatePicker'
-import { Select } from '@mui/material'
+import { Box, Select } from '@mui/material'
+import Grid from '@mui/material/Grid'
 
 import React from 'react';
 
@@ -21,6 +22,25 @@ export default function Home() {
       
       <BasicSelect> </BasicSelect>
       <BasicDatePicker></BasicDatePicker>
+      <Grid container spacing = {2}>
+        <Grid>
+          <Image src = "/images/X-ray_of_hip.jpg" height = {500} width = {500} alt = "XRay"></Image>
+        </Grid>
+        <Grid>
+          <Grid container direction = "column" spacing = {3}>
+            <BasicSelect></BasicSelect>
+          </Grid>
+
+          <Grid>
+            <BasicSelect></BasicSelect>
+          </Grid>
+
+          <Grid>
+            <Box>Recomendation</Box>
+          </Grid>
+        </Grid>
+      </Grid>
+      
       </div> {/* end gradient :) */}
     </main>
   )
