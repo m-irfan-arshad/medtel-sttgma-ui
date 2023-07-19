@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import styles from './page.module.css'
 import BasicSelect from './BasicSelect'
+import BasicDatePicker from './BasicDatePicker'
 import { Select } from '@mui/material'
 
 import React from 'react';
