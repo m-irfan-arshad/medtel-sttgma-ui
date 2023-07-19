@@ -1,11 +1,14 @@
 import Image from 'next/image'
 import styles from './page.module.css'
 import BasicSelect from './BasicSelect'
+import BasicDatePicker from './BasicDatePicker'
 import { Select } from '@mui/material'
 import React from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
+
+import React from 'react';
 
 export default function Home() {
   return (
@@ -20,6 +23,7 @@ export default function Home() {
         }}
       >
 
+
       <Grid container spacing={2} justifyContent = "center">
         <Grid xs={10} style={{ marginTop: '20px' }}>
           <Typography align="center"> STTGMA </Typography>
@@ -28,7 +32,7 @@ export default function Home() {
           <BasicSelect> </BasicSelect>
         </Grid>
         <Grid item xs={5}>
-          <BasicSelect> </BasicSelect>
+          <BasicDatePicker></BasicDatePicker>
         </Grid>
         <Grid item xs={5}>
           <BasicSelect> </BasicSelect>
@@ -50,6 +54,7 @@ export default function Home() {
       </Grid>
       
       
+
       </div> {/* end gradient :) */}
     </main>
   )
