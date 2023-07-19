@@ -2,6 +2,7 @@ import Image from 'next/image'
 import styles from './page.module.css'
 import BasicSelect from './BasicSelect'
 import { Select } from '@mui/material'
+
 import React from 'react';
 
 export default function Home() {
@@ -18,7 +19,7 @@ export default function Home() {
       >
       
       <BasicSelect> </BasicSelect>
-      
+      <BasicDatePicker></BasicDatePicker>
       </div> {/* end gradient :) */}
     </main>
   )
