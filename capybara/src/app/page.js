@@ -43,7 +43,8 @@ export default function Home() {
         </Grid>
       </Grid>
 
-      <Grid container justifyContent="center" alignItems="center">
+      {/* GCS Box */}
+      <Grid container justifyContent="center" alignItems="center" sx={{ marginBottom: '20px' }}>
       <Box sx={{ paddingTop: '20px', width: '100%'}}>
         <StyledBox backgroundColor="#F5F5F5">
             <Grid xs={12} style={{ mar: '10px' }}>
@@ -63,10 +64,43 @@ export default function Home() {
                 <Grid item xs={3}>
                   <BasicSelect> </BasicSelect>
                 </Grid>
-          </Grid>
+        </Grid>
         </StyledBox>
-        </Box>
-  </Grid>
+      </Box>
+      </Grid>
+      {/* CLOSE GCS Box */}
+
+      {/* AIS Box */}
+            <Grid container justifyContent="center" alignItems="center">
+      <Box sx={{ paddingTop: '20px', width: '100%'}}>
+        <StyledBox backgroundColor="#F5F5F5">
+            <Grid xs={12} style={{ mar: '10px' }}>
+              <Typography align="center"> AIS </Typography>
+            </Grid>
+
+        <Grid container spacing = {2} justifyContent = "center" sx={{ marginBottom: '20px' }}>
+              <Grid item xs={12}>
+                  <BasicSelect> </BasicSelect>
+              </Grid>
+        </Grid>
+        <Grid container spacing = {2} justifyContent = "center" sx={{ marginBottom: '20px' }}>
+              <Grid item xs={12}>
+                  <BasicSelect> </BasicSelect>
+              </Grid>
+        </Grid>
+        <Grid container spacing = {2} justifyContent = "center" sx={{ marginBottom: '20px' }}>
+              <Grid item xs={12}>
+                  <BasicSelect> </BasicSelect>
+              </Grid>
+        </Grid>
+
+
+        </StyledBox>
+      </Box>
+      </Grid>
+      {/* CLOSE AIS Box */}
+
+
   </StyledBox> 
 
       <BasicSelect> </BasicSelect>
