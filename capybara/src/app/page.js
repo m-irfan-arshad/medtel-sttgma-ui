@@ -4,6 +4,7 @@ import BasicSelect from './BasicSelect'
 import { Select } from '@mui/material'
 import React from 'react';
 import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
 
 
 export default function Home() {
@@ -20,6 +21,9 @@ export default function Home() {
       >
 
       <Grid container spacing={2}>
+        <Grid xs={10}>
+          <Typography> STTGMA </Typography>
+        </Grid>
         <Grid item xs={6}>
           <BasicSelect> </BasicSelect>
         </Grid>
