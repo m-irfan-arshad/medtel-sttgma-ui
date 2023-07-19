@@ -20,22 +20,33 @@ export default function Home() {
         }}
       >
 
-      <Grid container spacing={2}>
-        <Grid xs={10}>
-          <Typography> STTGMA </Typography>
+      <Grid container spacing={2} justifyContent = "center">
+        <Grid xs={10} style={{ marginTop: '20px' }}>
+          <Typography align="center"> STTGMA </Typography>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={10}>
           <BasicSelect> </BasicSelect>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={5}>
           <BasicSelect> </BasicSelect>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={5}>
           <BasicSelect> </BasicSelect>
         </Grid>
-        <Grid item xs={6}>
+
+        <Grid item xs={2.5}>
           <BasicSelect> </BasicSelect>
         </Grid>
+        <Grid item xs={2.5}>
+          <BasicSelect> </BasicSelect>
+        </Grid>
+        <Grid item xs={2.5}>
+          <BasicSelect> </BasicSelect>
+        </Grid>
+        <Grid item xs={2.5}>
+          <BasicSelect> </BasicSelect>
+        </Grid>
+
       </Grid>
       
       
