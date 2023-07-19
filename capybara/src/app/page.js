@@ -6,6 +6,8 @@ import { Select } from '@mui/material'
 import React from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import StyledBox from './StyledBox';
 
 
 
@@ -22,7 +24,7 @@ export default function Home() {
         }}
       >
 
-
+  <StyledBox> 
       <Grid container spacing={2} justifyContent = "center">
         <Grid xs={10} style={{ marginTop: '20px' }}>
           <Typography align="center"> STTGMA </Typography>
@@ -51,7 +53,7 @@ export default function Home() {
         </Grid>
 
       </Grid>
-      
+  </StyledBox>
       
 
       </div> {/* end gradient :) */}
