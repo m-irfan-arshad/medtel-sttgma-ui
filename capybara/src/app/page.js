@@ -8,9 +8,11 @@ import React from 'react';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import StyledBox from './StyledBox';
+import DialogSelect from './DialogSelect'
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+
 
 
 
@@ -99,6 +101,29 @@ export default function Home() {
       </Box>
       </Grid>
       {/* CLOSE AIS Box */}
+
+      {/* CCI, AMB, COVID */}
+      <Grid container justifyContent="center" alignItems="center" sx={{ marginBottom: '20px' }}>
+      <Box sx={{ paddingTop: '20px', width: '100%'}}>
+        <StyledBox backgroundColor="#F5F5F5">
+
+        <Grid container spacing = {2} justifyContent = "center">
+              <Grid item xs={4}>
+                  <DialogSelect> </DialogSelect>
+                </Grid>
+                <Grid item xs={4}>
+                  <BasicSelect> </BasicSelect>
+                </Grid>
+                <Grid item xs={4}>
+                  <BasicSelect> </BasicSelect>
+                </Grid>
+        </Grid>
+        </StyledBox>
+      </Box>
+      </Grid>
+
+      {/* CLOSE CCI, AMB, COVID */}
+
 
 
   </StyledBox> 
