@@ -9,6 +9,9 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import StyledBox from './StyledBox';
 
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+
 
 
 export default function Home() {
@@ -29,7 +32,7 @@ export default function Home() {
         <Grid xs={10} style={{ marginTop: '20px' }}>
           <Typography align="center"> STTGMA </Typography>
         </Grid>
-        <Grid item xs={10}>
+        <Grid item xs={12}>
           <BasicSelect> </BasicSelect>
         </Grid>
         <Grid item xs={5}>
@@ -38,21 +41,39 @@ export default function Home() {
         <Grid item xs={5}>
           <BasicSelect> </BasicSelect>
         </Grid>
-
-        <Grid item xs={2.5}>
-          <BasicSelect> </BasicSelect>
-        </Grid>
-        <Grid item xs={2.5}>
-          <BasicSelect> </BasicSelect>
-        </Grid>
-        <Grid item xs={2.5}>
-          <BasicSelect> </BasicSelect>
-        </Grid>
-        <Grid item xs={2.5}>
-          <BasicSelect> </BasicSelect>
-        </Grid>
-
       </Grid>
+
+      <Grid container justifyContent="center" alignItems="center">
+      <Box sx={{ paddingTop: '20px', width: '100%'}}>
+        <StyledBox backgroundColor="#F5F5F5">
+            <Grid xs={12} style={{ mar: '10px' }}>
+              <Typography align="center"> GCS Score </Typography>
+            </Grid>
+
+        <Grid container spacing = {2} justifyContent = "center">
+            <Grid item xs={3}>
+                  <BasicSelect> </BasicSelect>
+                </Grid>
+                <Grid item xs={3}>
+                  <BasicSelect> </BasicSelect>
+                </Grid>
+                <Grid item xs={3}>
+                  <BasicSelect> </BasicSelect>
+                </Grid>
+                <Grid item xs={3}>
+                  <BasicSelect> </BasicSelect>
+                </Grid>
+            </Grid>
+            
+        </StyledBox>
+        </Box>
+      
+      </Grid>
+
+
+
+
+      
   </StyledBox>
       
 

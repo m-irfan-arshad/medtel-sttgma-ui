@@ -6,15 +6,11 @@ export default function StyledBox(props) {
   return (
     <Box
       sx={{
-        backgroundColor: 'white',
+        border: '1px solid #E0E0E0',
+        backgroundColor: props.backgroundColor || 'white',
         padding: '20px',
-        maxWidth: {
-          xs: '550px',
-          sm: '900px',
-          md: '1200px',
-          lg: '1300px',
-          xl: '1400px',
-        },
+        width: '95%',
+        height: '95%',
         margin: '0 auto',
         borderRadius: '8px',
       }}
