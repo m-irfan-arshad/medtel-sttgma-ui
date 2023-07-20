@@ -124,6 +124,26 @@ export default function Home() {
 
       {/* CLOSE CCI, AMB, COVID */}
 
+      {/* CAlCULATE STTGMA AND RISK LEVEL  */}
+      <Grid container justifyContent="center" alignItems="center" sx={{ marginBottom: '20px' }}>
+      
+
+        <Grid container spacing = {2} justifyContent = "center">
+              <Grid item xs={4}>
+              <BasicSelect> </BasicSelect>
+                </Grid>
+                <Grid item xs={4}>
+                  <BasicSelect> </BasicSelect>
+                </Grid>
+                <Grid item xs={4}>
+                  <BasicSelect> </BasicSelect>
+                </Grid>
+        </Grid>
+
+      </Grid>
+
+
+
 
 
   </StyledBox> 
