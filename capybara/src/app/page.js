@@ -78,7 +78,8 @@ export default function Home() {
 
         <Grid container spacing = {2} justifyContent = "center">
               <Grid item xs={3}>
-                  <BasicSelect> </BasicSelect>
+                  <BasicSelect
+                  /> 
                 </Grid>
                 <Grid item xs={3}>
                   <BasicSelect> </BasicSelect>
