@@ -6,9 +6,11 @@ import Grid from '@mui/material/Grid'
 import { Select } from '@mui/material'
 import React from 'react';
 import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import StyledBox from './StyledBox';
+import Box from '@mui/material/Box'
+import StyledBox from './StyledBox'
 import DialogSelect from './DialogSelect'
+import TextField from '@mui/material/TextField'
+import Button from '@mui/material/Button'
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -30,20 +32,41 @@ export default function Home() {
       >
 
   <StyledBox> 
+
+          
       <Grid container spacing={2} justifyContent = "center">
         <Grid xs={10} style={{ marginTop: '20px' }}>
-          <Typography align="center"> STTGMA </Typography>
+          <Typography align="center" variant="h4" gutterBottom> STTGMA </Typography>
         </Grid>
-        <Grid item xs={12}>
-          <BasicSelect> </BasicSelect>
+
+          <Grid item xs={11}>
+                    <TextField
+                      required
+                      fullWidth
+                      id="mrn"
+                      label="MRN"
+                      name="mrn"
+                      autoComplete="family-name"
+                    />
+          </Grid>
         </Grid>
-        <Grid item xs={5}>
-          <BasicDatePicker></BasicDatePicker>
+
+        <Grid container spacing={2} justifyContent = "center"  style={{ marginTop: '15px' }}>
+          <Grid item xs={5}>
+            <BasicDatePicker></BasicDatePicker>
+          </Grid>
+          <Grid item xs={5}>
+          <TextField
+          fullWidth id="outlined-read-only-input"
+          defaultValue="Age"
+
+          InputProps={{
+            readOnly: true,
+            sx: { backgroundColor: '#F5F5F5'},
+          }}
+          />
+          </Grid>
         </Grid>
-        <Grid item xs={5}>
-          <BasicSelect> </BasicSelect>
-        </Grid>
-      </Grid>
 
       {/* GCS Box */}
       <Grid container justifyContent="center" alignItems="center" sx={{ marginBottom: '20px' }}>
@@ -129,14 +152,32 @@ export default function Home() {
       
 
         <Grid container spacing = {2} justifyContent = "center">
-              <Grid item xs={4}>
-              <BasicSelect> </BasicSelect>
+                <Grid item xs={4}>
+                  <Button fullWidth variant="contained" size="large">
+                      Calculate STTGMA
+                  </Button>
                 </Grid>
                 <Grid item xs={4}>
-                  <BasicSelect> </BasicSelect>
+                  <TextField
+                    fullWidth id="outlined-read-only-input"
+                    defaultValue="STTGMA Score"
+
+                    InputProps={{
+                      readOnly: true,
+                      sx: { backgroundColor: '#F5F5F5'},
+                    }}
+                    />
                 </Grid>
                 <Grid item xs={4}>
-                  <BasicSelect> </BasicSelect>
+                    <TextField
+                      fullWidth id="outlined-read-only-input"
+                      defaultValue="Risk Level"
+
+                      InputProps={{
+                        readOnly: true,
+                        sx: { backgroundColor: '#F5F5F5'},
+                      }}
+                      />
                 </Grid>
         </Grid>
 

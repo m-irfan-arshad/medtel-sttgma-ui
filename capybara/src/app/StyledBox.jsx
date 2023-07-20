@@ -12,7 +12,7 @@ export default function StyledBox(props) {
         width: '95%',
         height: '95%',
         margin: '0 auto',
-        borderRadius: '8px',
+        borderRadius: '30px',
       }}
     >
       {props.children}
