@@ -68,28 +68,21 @@ export default function Home() {
         </Box>
   </Grid>
   </StyledBox> 
-
-      <BasicSelect> </BasicSelect>
-      <BasicDatePicker></BasicDatePicker>
-      <Grid container spacing = {2}>
-        <Grid>
+  <Grid style={{ marginTop: '20px' }}/>
+  <StyledBox>
+      <Grid container spacing = {2} style={{ marginTop: '20px' }}>
+        <Grid item xs = {12} sm = {6}>
           <Image src = "/images/X-ray_of_hip.jpg" height = {500} width = {500} alt = "XRay"></Image>
         </Grid>
         <Grid>
-          <Grid container direction = "column" spacing = {2}>
+          <Grid item xs = {12} sm = {6}>
             <BasicSelect></BasicSelect>
-          </Grid>
-
-          <Grid>
             <BasicSelect></BasicSelect>
-          </Grid>
-
-          <Grid>
             <Box>Recomendation</Box>
           </Grid>
         </Grid>
       </Grid>
-      
+    </StyledBox>
 
       </div> {/* end gradient :) */}
     </main>
