@@ -79,6 +79,8 @@ export default function Home() {
         <Grid container spacing = {2} justifyContent = "center">
               <Grid item xs={3}>
                   <BasicSelect
+                    label = {"eye opening response"}
+                    menuItems = {["hello", "frog", "mongoose"]}
                   /> 
                 </Grid>
                 <Grid item xs={3}>
