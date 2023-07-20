@@ -8,7 +8,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 export default function BasicSelect(props) {
-  const {label} = props
+  const {label, menuItems} = props
   const [age, setAge] = React.useState('');
 
   const handleChange = (event) => {
@@ -31,6 +31,13 @@ export default function BasicSelect(props) {
           <MenuItem value={30}>Thirty</MenuItem>
         </Select>
       </FormControl>
+
+      {menuItems.map((item, index) => (
+            // Use a unique 'key' prop for each MenuItem, it could be the index or any other unique identifier.
+            <MenuItem key={index} value={item}>
+              {item}
+            </MenuItem>
+          ))}
     </Box>
   );
 }

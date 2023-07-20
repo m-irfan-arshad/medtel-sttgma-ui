@@ -80,7 +80,7 @@ export default function Home() {
               <Grid item xs={3}>
                   <BasicSelect
                     label = {"eye opening response"}
-                    menuItems = {["hello", "frog", "mongoose"]}
+                    menuItems = {["hello", "hi", "goose"]}
                   /> 
                 </Grid>
                 <Grid item xs={3}>
