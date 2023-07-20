@@ -76,7 +76,7 @@ export default function Home() {
           <Image src = "/images/X-ray_of_hip.jpg" height = {500} width = {500} alt = "XRay"></Image>
         </Grid>
         <Grid>
-          <Grid container direction = "column" spacing = {3}>
+          <Grid container direction = "column" spacing = {2}>
             <BasicSelect></BasicSelect>
           </Grid>
 
