@@ -10,7 +10,6 @@ import Select from '@mui/material/Select';
 export default function BasicSelect(props) {
   const {label, menuItems} = props
   const [age, setAge] = React.useState('');
-  const example = ['one', 'two', 'three']
 
   const handleChange = (event) => {
     setAge(event.target.value);
@@ -28,9 +27,10 @@ export default function BasicSelect(props) {
           label= {label}
           onChange={handleChange}
         >
-          menuItems.map((item, index) => (
-            <MenuItem key={index} value={item.value}> {item.value} </MenuItem> 
+          {/* {menuItems.map((item, index) => (
+            <MenuItem key={index}> {item} </MenuItem> 
           ))
+          } */}
           
           <MenuItem value={10}>Ten</MenuItem>
           <MenuItem value={20}>Twenty</MenuItem>
