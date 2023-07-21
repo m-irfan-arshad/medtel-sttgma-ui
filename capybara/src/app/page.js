@@ -14,6 +14,7 @@ import Button from '@mui/material/Button'
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import CciModal from './CciModal'
 
 
 
@@ -153,7 +154,7 @@ export default function Home() {
 
         <Grid container spacing = {2} justifyContent = "center">
               <Grid item xs={4}>
-                  <DialogSelect> </DialogSelect>
+                   <CciModal></CciModal>
                 </Grid>
                 <Grid item xs={4}>
                   <BasicSelect
