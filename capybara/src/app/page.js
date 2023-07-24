@@ -214,28 +214,29 @@ export default function Home() {
 
 
   </StyledBox> 
-
-      <BasicSelect> </BasicSelect>
-      <BasicDatePicker></BasicDatePicker>
-      <Grid container spacing = {2}>
-        <Grid>
-          <Image src = "/images/X-ray_of_hip.jpg" height = {500} width = {500} alt = "XRay"></Image>
+  <Grid style={{ marginTop: '20px' }}/>
+  <StyledBox>
+      <Grid container spacing = {2} style={{ marginTop: '20px' , marginBottom: '20px'}} justifyContent="space-evenly">
+        <Grid item xs = {12} sm = {6}>
+          <div style={{ position: 'relative', width: '100%', paddingTop: '100%' }}>
+            <Image src = "/images/X-ray_of_hip.jpg" objectFit="layout" layout= "fill" alt = "XRay"></Image>
+           </div> 
+          
         </Grid>
         <Grid>
-          <Grid container direction = "column" spacing = {3}>
-            <BasicSelect></BasicSelect>
-          </Grid>
-
-          <Grid>
-            <BasicSelect></BasicSelect>
-          </Grid>
-
-          <Grid>
-            <Box>Recomendation</Box>
+          <Grid container spacing = {2} item xs = {12} sm = {6} style={{ marginTop: '20px' , marginBottom: '20px'}} direction = "column" alignItems = "center" justifyContent= "space-between" height = "300px">
+              
+                  <BasicSelect> </BasicSelect>
+                
+                
+                  <BasicSelect> </BasicSelect>
+                
+                  <BasicSelect> </BasicSelect>
+                
           </Grid>
         </Grid>
       </Grid>
-      
+    </StyledBox>
 
       </div> {/* end gradient :) */}
     </main>
