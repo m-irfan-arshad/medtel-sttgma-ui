@@ -78,10 +78,15 @@ export default function Home() {
           
         </Grid>
         <Grid>
-          <Grid spacing = {2} item xs = {12} sm = {6} direction = "column" justifyContent="space-evenly">
-            <BasicSelect></BasicSelect>
-            <BasicSelect></BasicSelect>
-            <Box>Recomendation</Box>
+          <Grid container spacing = {2} item xs = {12} sm = {6} style={{ marginTop: '20px' , marginBottom: '20px'}} direction = "column" alignItems = "center" justifyContent= "space-between" height = "300px">
+              
+                  <BasicSelect> </BasicSelect>
+                
+                
+                  <BasicSelect> </BasicSelect>
+                
+                  <BasicSelect> </BasicSelect>
+                
           </Grid>
         </Grid>
       </Grid>
