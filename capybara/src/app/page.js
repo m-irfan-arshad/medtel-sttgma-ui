@@ -70,12 +70,15 @@ export default function Home() {
   </StyledBox> 
   <Grid style={{ marginTop: '20px' }}/>
   <StyledBox>
-      <Grid container spacing = {2} style={{ marginTop: '20px' }} justifyContent="space-evenly">
+      <Grid container spacing = {2} style={{ marginTop: '20px' , marginBottom: '20px'}} justifyContent="space-evenly">
         <Grid item xs = {12} sm = {6}>
-          <Image src = "/images/X-ray_of_hip.jpg" height = {500} width = {500} alt = "XRay"></Image>
+          <div style={{ position: 'relative', width: '100%', paddingTop: '100%' }}>
+            <Image src = "/images/X-ray_of_hip.jpg" objectFit="layout" layout= "fill" alt = "XRay"></Image>
+           </div> 
+          
         </Grid>
         <Grid>
-          <Grid spacing = {2} item xs = {12} sm = {6} direction = "column" >
+          <Grid spacing = {2} item xs = {12} sm = {6} direction = "column" justifyContent="space-evenly">
             <BasicSelect></BasicSelect>
             <BasicSelect></BasicSelect>
             <Box>Recomendation</Box>
