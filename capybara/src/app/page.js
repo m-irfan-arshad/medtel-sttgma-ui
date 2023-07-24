@@ -14,6 +14,7 @@ import Button from '@mui/material/Button'
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import CciModal from './CciModal'
 
 
 
@@ -72,22 +73,37 @@ export default function Home() {
       <Grid container justifyContent="center" alignItems="center" sx={{ marginBottom: '20px' }}>
       <Box sx={{ paddingTop: '20px', width: '100%'}}>
         <StyledBox backgroundColor="#F5F5F5">
-            <Grid xs={12} style={{ mar: '10px' }}>
+            <Grid xs={12} style={{ mar: '10px' }} sx={{ marginBottom: '10px'}}>
               <Typography align="center"> GCS Score </Typography>
             </Grid>
 
         <Grid container spacing = {2} justifyContent = "center">
               <Grid item xs={3}>
-                  <BasicSelect> </BasicSelect>
+                  <BasicSelect
+                    label = {"eye opening response"}
+                    menuItems = {["hello", "hi", "goose"]}
+                  /> 
                 </Grid>
                 <Grid item xs={3}>
-                  <BasicSelect> </BasicSelect>
+                  <BasicSelect
+                    label = {"best verbal response"}
+                  /> 
                 </Grid>
                 <Grid item xs={3}>
-                  <BasicSelect> </BasicSelect>
+                  <BasicSelect
+                    label = {"best motor response"}
+                  /> 
                 </Grid>
                 <Grid item xs={3}>
-                  <BasicSelect> </BasicSelect>
+                <TextField
+                    fullWidth id="outlined-read-only-input"
+                    defaultValue="GCS total score"
+
+                    InputProps={{
+                    readOnly: true,
+                    sx: { backgroundColor: '#F5F5F5'},
+                    }}
+                      />
                 </Grid>
         </Grid>
         </StyledBox>
@@ -99,23 +115,29 @@ export default function Home() {
             <Grid container justifyContent="center" alignItems="center">
       <Box sx={{ paddingTop: '20px', width: '100%'}}>
         <StyledBox backgroundColor="#F5F5F5">
-            <Grid xs={12} style={{ mar: '10px' }}>
+            <Grid xs={12} style={{ mar: '10px' }} sx={{ marginBottom: '10px'}}>
               <Typography align="center"> AIS </Typography>
             </Grid>
 
         <Grid container spacing = {2} justifyContent = "center" sx={{ marginBottom: '20px' }}>
               <Grid item xs={12}>
-                  <BasicSelect> </BasicSelect>
+                  <BasicSelect
+                    label = {"AIS Head and Neck"}
+                  /> 
               </Grid>
         </Grid>
         <Grid container spacing = {2} justifyContent = "center" sx={{ marginBottom: '20px' }}>
               <Grid item xs={12}>
-                  <BasicSelect> </BasicSelect>
+                  <BasicSelect
+                    label = {"AIS Chest"}
+                  /> 
               </Grid>
         </Grid>
         <Grid container spacing = {2} justifyContent = "center" sx={{ marginBottom: '20px' }}>
               <Grid item xs={12}>
-                  <BasicSelect> </BasicSelect>
+                  <BasicSelect
+                    label = {"AIS Extremity/Pelvis"}
+                  /> 
               </Grid>
         </Grid>
 
@@ -132,13 +154,17 @@ export default function Home() {
 
         <Grid container spacing = {2} justifyContent = "center">
               <Grid item xs={4}>
-                  <DialogSelect> </DialogSelect>
+                   <CciModal></CciModal>
                 </Grid>
                 <Grid item xs={4}>
-                  <BasicSelect> </BasicSelect>
+                  <BasicSelect
+                    label = {"Amb Status"}
+                  />
                 </Grid>
                 <Grid item xs={4}>
-                  <BasicSelect> </BasicSelect>
+                  <BasicSelect
+                    label = {"Covid"}
+                  /> 
                 </Grid>
         </Grid>
         </StyledBox>
