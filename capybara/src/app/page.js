@@ -8,12 +8,8 @@ import React from 'react';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box'
 import StyledBox from './StyledBox'
-import DialogSelect from './DialogSelect'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
-
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 import CciModal from './CciModal'
 
 
@@ -81,7 +77,7 @@ export default function Home() {
               <Grid item xs={3}>
                   <BasicSelect
                     label = {"eye opening response"}
-                    menuItems = {["hello", "hi", "goose"]}
+                    menuItems = {["1- hi", "2- meep"]}
                   /> 
                 </Grid>
                 <Grid item xs={3}>
