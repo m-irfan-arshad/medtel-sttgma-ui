@@ -28,15 +28,15 @@ export default function Home() {
         }}
       >
 
+  <Grid style={{ marginTop: '50px' }}/>
   <StyledBox> 
 
-          
       <Grid container spacing={2} justifyContent = "center">
-        <Grid xs={10} style={{ marginTop: '20px' }}>
+        <Grid xs={10} style={{ marginTop: '30px' }}>
           <Typography align="center" variant="h4" gutterBottom> STTGMA </Typography>
         </Grid>
 
-          <Grid item xs={11}>
+          <Grid item xs={10.5}>
                     <TextField
                       required
                       fullWidth
@@ -49,17 +49,17 @@ export default function Home() {
         </Grid>
 
         <Grid container spacing={2} justifyContent = "center"  style={{ marginTop: '15px' }}>
-          <Grid item xs={5}>
+          <Grid item xs={5.25}>
             <BasicDatePicker></BasicDatePicker>
           </Grid>
-          <Grid item xs={5}>
+          <Grid item xs={5.25}>
           <TextField
           fullWidth id="outlined-read-only-input"
           defaultValue="Age"
 
           InputProps={{
             readOnly: true,
-            sx: { backgroundColor: '#F5F5F5'},
+            sx: { backgroundColor: '#eaecef'},
           }}
           />
           </Grid>
@@ -68,7 +68,7 @@ export default function Home() {
       {/* GCS Box */}
       <Grid container justifyContent="center" alignItems="center" sx={{ marginBottom: '20px' }}>
       <Box sx={{ paddingTop: '20px', width: '100%'}}>
-        <StyledBox backgroundColor="#F5F5F5">
+        <StyledBox backgroundColor="#f8f9fa">
             <Grid xs={12} style={{ mar: '10px' }} sx={{ marginBottom: '10px'}}>
               <Typography align="center"> GCS Score </Typography>
             </Grid>
@@ -110,7 +110,7 @@ export default function Home() {
                     defaultValue="GCS total score"
                     InputProps={{
                     readOnly: true,
-                    sx: { backgroundColor: '#F5F5F5'},
+                    sx: { backgroundColor: '#eaecef'},
                     }}
                       />
                 </Grid>
@@ -123,7 +123,7 @@ export default function Home() {
       {/* AIS Box */}
             <Grid container justifyContent="center" alignItems="center">
       <Box sx={{ paddingTop: '20px', width: '100%'}}>
-        <StyledBox backgroundColor="#F5F5F5">
+        <StyledBox backgroundColor="#f8f9fa">
             <Grid xs={12} style={{ mar: '10px' }} sx={{ marginBottom: '10px'}}>
               <Typography align="center"> AIS </Typography>
             </Grid>
@@ -177,16 +177,31 @@ export default function Home() {
       </Grid>
       {/* CLOSE AIS Box */}
 
+      {/* ASA */}
+      <Grid container justifyContent = "center" alignItems = "center" sx= {{marginTop: '40px'}}>
+        <Grid item xs={10.5}>
+          <BasicSelect
+            label = {"ASA"}
+            menuItems = {["1 - A normal healthy patient",
+              "2 - A patient with mild systemic disease",
+              "3 - A patient with severe systemic disease",
+              "4 - A patient with severe systemic disease that is a constant threat to life",
+              "5 - A moribund patient who is not expected to survive without the operation",
+              "6 -A declared brain-dead patient whose organs are being removed for donor purposes"]}
+          />
+        </Grid>
+      </Grid>
+
       {/* CCI, AMB, COVID */}
       <Grid container justifyContent="center" alignItems="center" sx={{ marginBottom: '20px' }}>
       <Box sx={{ paddingTop: '20px', width: '100%'}}>
-        <StyledBox backgroundColor="#F5F5F5">
+        
 
         <Grid container spacing = {2} justifyContent = "center">
-              <Grid item xs={4}>
+              <Grid item xs={3.5}>
                    <CciModal></CciModal>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={3.5}>
                   <BasicSelect
                     label = {"Amb Status"}
                     menuItems = {["1 - Community ambulator",
@@ -194,14 +209,14 @@ export default function Home() {
                     "3 - Minimal/non-ambulatory"]}
                   />
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={3.5}>
                   <BasicSelect
                     label = {"Covid"}
                     menuItems = {["Negative", "Positive/Suspected"]}
                   /> 
                 </Grid>
         </Grid>
-        </StyledBox>
+        
       </Box>
       </Grid>
 
@@ -212,30 +227,30 @@ export default function Home() {
       
 
         <Grid container spacing = {2} justifyContent = "center">
-                <Grid item xs={4}>
-                  <Button fullWidth variant="contained" size="large">
+                <Grid item xs={3.5}>
+                  <Button fullWidth variant="contained" size="large" color = "success" sx={{height: '56px', backgroundColor: '#71D57F'}}>
                       Calculate STTGMA
                   </Button>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={3.5}>
                   <TextField
                     fullWidth id="outlined-read-only-input"
                     defaultValue="STTGMA Score"
 
                     InputProps={{
                       readOnly: true,
-                      sx: { backgroundColor: '#F5F5F5'},
+                      sx: { backgroundColor: '#eaecef'},
                     }}
                     />
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={3.5}>
                     <TextField
                       fullWidth id="outlined-read-only-input"
                       defaultValue="Risk Level"
 
                       InputProps={{
                         readOnly: true,
-                        sx: { backgroundColor: '#F5F5F5'},
+                        sx: { backgroundColor: '#eaecef'},
                       }}
                       />
                 </Grid>
@@ -247,30 +262,53 @@ export default function Home() {
 
 
 
-  </StyledBox> 
+  </StyledBox>  {/* Close STTGMA CALC BOX */}
+
   <Grid style={{ marginTop: '20px' }}/>
+
+  {/* Procedure BOX */}
   <StyledBox>
-      <Grid container spacing = {2} style={{ marginTop: '20px' , marginBottom: '20px'}} justifyContent="space-evenly">
-        <Grid item xs = {12} sm = {6}>
-          <div style={{ position: 'relative', width: '100%', paddingTop: '100%' }}>
-            <Image src = "/images/X-ray_of_hip.jpg" objectFit="layout" layout= "fill" alt = "XRay"></Image>
-           </div> 
-          
+        <Grid xs={10} style={{ marginTop: '30px' ,marginBottom: '30px'}}>
+          <Typography align="center" variant="h4" gutterBottom> Recommended Procedure </Typography>
         </Grid>
-        <Grid>
-          <Grid container spacing = {2} item xs = {12} sm = {6} style={{ marginTop: '20px' , marginBottom: '20px'}} direction = "column" alignItems = "center" justifyContent= "space-between" height = "300px">
-              
-                  <BasicSelect> </BasicSelect>
-                
-                
-                  <BasicSelect> </BasicSelect>
-                
-                  <BasicSelect> </BasicSelect>
-                
+      
+      <Grid container spacing = {2} style={{ marginBottom: '20px'}} justifyContent="left">
+        <Grid item xs = {7} sm = {7}>
+          <Typography align="left" color = "#BEBEBE" style= {{marginLeft: '20px'}}> X-RAY Upload </Typography>
+          <StyledBox backgroundColor="#f8f9fa" borderRadius= '10px'  width= '100%' height= '100%' >
+            <div style={{ position: 'relative', width: '100%', height: '100%', paddingTop: '100%' }}>
+              <Image src = "/images/X-ray_of_hip.jpg" objectFit="layout" layout= "fill" alt = "XRay"></Image>
+            </div> 
+           </StyledBox>
+        </Grid>
+        <Grid item xs= {5} direction = "column">
+          <Grid style= {{marginBottom: '20px', marginTop: '30px'}}>
+            <BasicSelect
+              label = "fracture location"
+              menuItems = {["Femoral Neck Fx", "Intertrochanteric Fx", "Subtrochanteric Fx"]}
+            />
+          </Grid>
+          <Grid style= {{marginBottom: '20px'}}>
+            <BasicSelect
+              label = "fracture type"
+            />
+          </Grid>
+          <hr/>
+          <Grid style= {{marginTop: '20px', marginBottom: '20px'}}>
+              <TextField
+                    fullWidth id="outlined-read-only-input"
+                    defaultValue="Recommended Procedure"
+                    InputProps={{
+                    readOnly: true,
+                    sx: { backgroundColor: '#eaecef'},
+                    }}
+              />
           </Grid>
         </Grid>
+        
       </Grid>
-    </StyledBox>
+    </StyledBox> 
+    {/* Close Procedure Box */}
 
       </div> {/* end gradient :) */}
     </main>

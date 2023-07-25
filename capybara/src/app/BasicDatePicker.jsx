@@ -4,16 +4,19 @@ import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import FormControl from '@mui/material/FormControl';
 
 
 export default function BasicDatePicker() {
   return (
 
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      
-        <DatePicker label="Date of Birth" />
-      
-    </LocalizationProvider>
+    <FormControl fullWidth>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        
+          <DatePicker label="Date of Birth" />
+        
+      </LocalizationProvider>
+    </FormControl>
 
   );
 }
