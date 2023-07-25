@@ -60,7 +60,7 @@ export default function CciModal() {
 
   return (
     <div>
-      <Button fullWidth variant="outlined" color="secondary" onClick = {handleOpen} size="large">
+      <Button fullWidth variant="outlined" onClick = {handleOpen} size="large" sx={{height: '56px'}}>
           CCI
       </Button>
       <Modal
