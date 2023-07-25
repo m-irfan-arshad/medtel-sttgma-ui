@@ -11,7 +11,7 @@ import StyledBox from './StyledBox'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import CciModal from './CciModal'
-
+import MrnField from './MrnField'
 
 
 
@@ -37,14 +37,7 @@ export default function Home() {
         </Grid>
 
           <Grid item xs={10.5}>
-                    <TextField
-                      required
-                      fullWidth
-                      id="mrn"
-                      label="MRN"
-                      name="mrn"
-                      autoComplete="family-name"
-                    />
+              <MrnField />
           </Grid>
         </Grid>
 
