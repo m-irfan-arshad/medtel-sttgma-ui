@@ -12,7 +12,7 @@ export default function BasicSelect(props) {
   const [temp_val, setValue] = React.useState('');
 
   const handleChange = (event) => {
-    setValue(event.target.value);
+    setValue(event.target.value.charAt(0));
   };
 
   return (
@@ -27,15 +27,12 @@ export default function BasicSelect(props) {
           label= {label}
           onChange={handleChange}
         >
-          {
-            menuItems && menuItems.map((item, index) => (
-            <MenuItem value = {item.charAt(0)} key={index}> {item} </MenuItem> 
-            ))
-          } 
-          
-          {/* <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem> */}
+        {menuItems && menuItems.map((item, index) => {
+          return (
+            <MenuItem value={item.charAt(0)} key={index}> {item} </MenuItem>
+          );
+        })
+        }         
 
         </Select>
       </FormControl>
