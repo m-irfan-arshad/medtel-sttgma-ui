@@ -8,11 +8,15 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 export default function BasicSelect(props) {
-  const {label, menuItems} = props
+  const {label, menuItems, onChange} = props
   const [temp_val, setValue] = React.useState('');
 
   const handleChange = (event) => {
     setValue(event.target.value.charAt(0));
+    if (onChange)
+    {
+      onChange(event.target.value); // pass the selected option back to the onChange handler
+    }
   };
 
   return (

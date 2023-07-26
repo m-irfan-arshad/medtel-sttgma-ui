@@ -5,11 +5,12 @@ import FractureTypeSelect from './FractureTypeSelect';
 
 export default function FractureForm() {
   const [selectedLocation, setSelectedLocation] = useState("");
+  console.log({selectedLocation})
 
   return (
     <div>
       <FractureLocationSelect onSelect={setSelectedLocation} />
-      <FractureTypeSelect selectedLocation={selectedLocation} />
+      {selectedLocation !== "S" && <FractureTypeSelect selectedLocation={selectedLocation} />}
     </div>
   );
 }

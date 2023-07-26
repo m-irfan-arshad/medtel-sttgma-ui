@@ -268,7 +268,7 @@ export default function Home() {
 
   {/* Procedure BOX */}
   <StyledBox>
-        <Grid xs={10} style={{ marginTop: '30px' ,marginBottom: '30px'}}>
+        <Grid item xs={10} style={{ marginTop: '30px' ,marginBottom: '30px'}}>
           <Typography align="center" variant="h4" gutterBottom> Recommended Procedure </Typography>
         </Grid>
       
@@ -282,7 +282,8 @@ export default function Home() {
            </StyledBox>
         </Grid>
 
-        <Grid item xs= {5} direction = "column">
+        
+        <Grid container item xs= {5} direction = "column">
           <FractureForm/>
           <hr/>
           <Grid style= {{marginTop: '20px', marginBottom: '20px'}}>

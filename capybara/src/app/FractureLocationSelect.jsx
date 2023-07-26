@@ -6,8 +6,8 @@ import Grid from '@mui/material/Grid'
 
 export default function FractureLocationSelect({ onSelect }) {
     const handleLocationChange = (selectedOption) => {
-        console.log({selectedOption})
       onSelect(selectedOption);
+      console.log({selectedOption})
     };
 
     return (

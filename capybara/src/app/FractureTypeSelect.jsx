@@ -17,12 +17,12 @@ export default function FractureTypeSelect({ selectedLocation }) {
     // Add your logic here to set menuItems based on the selectedLocation
     // For example:
     
-    if (location === "Femoral Neck Fx") {
-      return ["Option 1 for Femoral Neck Fx", "Option 2 for Femoral Neck Fx", "Option 3 for Femoral Neck Fx"];
-    } else if (location === "Intertrochanteric Fx") {
-      return ["Option 1 for Intertrochanteric Fx", "Option 2 for Intertrochanteric Fx"];
-    } else if (location === "Subtrochanteric Fx") {
-      return ["Option 1 for Subtrochanteric Fx", "Option 2 for Subtrochanteric Fx", "Option 3 for Subtrochanteric Fx"];
+    if (location === "F") {
+      return ["displaced", "non-displaced"];
+    } else if (location === "I") {
+      return ["Stable", "Unstable", "Reverse Obliguidity"];
+    } else if (location === "S") {
+      return [];
     } else {
       return [];
     }
