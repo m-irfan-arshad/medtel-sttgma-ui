@@ -12,6 +12,7 @@ import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import CciModal from './CciModal'
 import MrnField from './MrnField'
+import FractureForm from './FractureForm'
 
 
 
@@ -267,7 +268,7 @@ export default function Home() {
 
   {/* Procedure BOX */}
   <StyledBox>
-        <Grid xs={10} style={{ marginTop: '30px' ,marginBottom: '30px'}}>
+        <Grid item xs={10} style={{ marginTop: '30px' ,marginBottom: '30px'}}>
           <Typography align="center" variant="h4" gutterBottom> Recommended Procedure </Typography>
         </Grid>
       
@@ -280,18 +281,10 @@ export default function Home() {
             </div> 
            </StyledBox>
         </Grid>
-        <Grid item xs= {5} direction = "column">
-          <Grid style= {{marginBottom: '20px', marginTop: '30px'}}>
-            <BasicSelect
-              label = "fracture location"
-              menuItems = {["Femoral Neck Fx", "Intertrochanteric Fx", "Subtrochanteric Fx"]}
-            />
-          </Grid>
-          <Grid style= {{marginBottom: '20px'}}>
-            <BasicSelect
-              label = "fracture type"
-            />
-          </Grid>
+
+        
+        <Grid container item xs= {5} direction = "column">
+          <FractureForm/>
           <hr/>
           <Grid style= {{marginTop: '20px', marginBottom: '20px'}}>
               <TextField
