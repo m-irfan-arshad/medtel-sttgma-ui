@@ -32,7 +32,9 @@ export default function Home() {
   <StyledBox> 
 
       <Grid container spacing={2} justifyContent = "center">
-        <Grid xs={10} style={{ marginTop: '30px' }}>
+
+        <Grid item xs={10} style={{ marginTop: '30px' }}>
+
           <Typography align="center" variant="h4" gutterBottom> STTGMA </Typography>
         </Grid>
 
@@ -61,8 +63,10 @@ export default function Home() {
       {/* GCS Box */}
       <Grid container justifyContent="center" alignItems="center" sx={{ marginBottom: '20px' }}>
       <Box sx={{ paddingTop: '20px', width: '100%'}}>
+
         <StyledBox backgroundColor="#f8f9fa">
-            <Grid xs={12} style={{ mar: '10px' }} sx={{ marginBottom: '10px'}}>
+            <Grid item xs={12} style={{ mar: '10px' }} sx={{ marginBottom: '10px'}}>
+
               <Typography align="center"> GCS Score </Typography>
             </Grid>
 
@@ -116,8 +120,10 @@ export default function Home() {
       {/* AIS Box */}
             <Grid container justifyContent="center" alignItems="center">
       <Box sx={{ paddingTop: '20px', width: '100%'}}>
+
         <StyledBox backgroundColor="#f8f9fa">
-            <Grid xs={12} style={{ mar: '10px' }} sx={{ marginBottom: '10px'}}>
+            <Grid item xs={12} style={{ mar: '10px' }} sx={{ marginBottom: '10px'}}>
+
               <Typography align="center"> AIS </Typography>
             </Grid>
 
