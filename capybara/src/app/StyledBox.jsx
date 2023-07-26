@@ -8,11 +8,11 @@ export default function StyledBox(props) {
       sx={{
         border: '1px solid #E0E0E0',
         backgroundColor: props.backgroundColor || 'white',
-        padding: '20px',
-        width: '95%',
-        height: '95%',
-        margin: '0 auto',
-        borderRadius: '30px',
+        padding: props.padding || '20px',
+        width: props.width || '88%',
+        height: props.height || '90%',
+        margin: props.margin || '0 auto',
+        borderRadius: props.borderRadius || '30px',
       }}
     >
       {props.children}
