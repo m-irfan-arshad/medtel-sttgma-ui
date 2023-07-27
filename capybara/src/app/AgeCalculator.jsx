@@ -9,11 +9,13 @@ import TextField from '@mui/material/TextField'
 export default function AgeCalculator(){
     
   const [dob, setDOB] = useState('');
-  const [age, setAge] = useState('');
+  const [age, setAge] = useState('Age');
 
   const handleDOBChange = (event) => {
     setDOB(event);
   };
+
+  
 
   const calculateAge = () => {
     const dobDate = new Date(dob);
@@ -30,7 +32,6 @@ export default function AgeCalculator(){
     if (currentMonth < dobMonth || (currentMonth === dobMonth && currentDay < dobDay)) {
       calculatedAge--;
     }
-
     setAge(calculatedAge.toString());
   };
 
@@ -46,7 +47,7 @@ export default function AgeCalculator(){
             <BasicDatePicker dob = {dob} handleDOBChange={handleDOBChange}></BasicDatePicker>
           </Grid>
           <Grid item xs={5}>
-          <TextField
+          {age && <TextField
           fullWidth id="outlined-read-only-input"
           defaultValue={age}
 
@@ -54,7 +55,7 @@ export default function AgeCalculator(){
             readOnly: true,
             sx: { backgroundColor: '#F5F5F5'},
           }}
-          />
+          />}
           </Grid>
         </Grid>
     )
