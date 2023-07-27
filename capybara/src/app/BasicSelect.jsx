@@ -8,11 +8,15 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 export default function BasicSelect(props) {
-  const {label, menuItems} = props
-  const [age, setAge] = React.useState('');
+  const {label, menuItems, onChange} = props
+  const [temp_val, setValue] = React.useState('');
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setValue(event.target.value.charAt(0));
+    if (onChange)
+    {
+      onChange(event.target.value); // pass the selected option back to the onChange handler
+    }
   };
 
   return (
@@ -23,18 +27,17 @@ export default function BasicSelect(props) {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
+          value={temp_val}
           label= {label}
           onChange={handleChange}
         >
-          {/* {menuItems.map((item, index) => (
-            <MenuItem key={index}> {item} </MenuItem> 
-          ))
-          } */}
-          
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+        {menuItems && menuItems.map((item, index) => {
+          return (
+            <MenuItem value={item.charAt(0)} key={index}> {item} </MenuItem>
+          );
+        })
+        }         
+
         </Select>
       </FormControl>
 
