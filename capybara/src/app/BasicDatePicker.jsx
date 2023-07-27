@@ -6,12 +6,14 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 
-export default function BasicDatePicker() {
+export default function BasicDatePicker({dob, setDOB, handleDOBChange}) {
   return (
 
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       
-        <DatePicker label="Date of Birth" />
+        <DatePicker label="Date of Birth" 
+        value = {dob}
+        onChange = {(newValue) => setDOB(newValue)}/>
       
     </LocalizationProvider>
 

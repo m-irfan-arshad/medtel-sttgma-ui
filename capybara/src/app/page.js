@@ -15,12 +15,19 @@ import Button from '@mui/material/Button'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CciModal from './CciModal'
+import AgeGetter from './AgeCalculator'
+
+import Head from "next/head"
+import NextHead from './NextHead'
+
 
 
 
 
 export default function Home() {
   return (
+    <div>
+    <NextHead/>
     <main>
       <div
         className={styles.gradientBackground}
@@ -50,24 +57,10 @@ export default function Home() {
                       autoComplete="family-name"
                     />
           </Grid>
+          <AgeGetter/>
         </Grid>
-
-        <Grid container spacing={2} justifyContent = "center"  style={{ marginTop: '15px' }}>
-          <Grid item xs={5}>
-            <BasicDatePicker></BasicDatePicker>
-          </Grid>
-          <Grid item xs={5}>
-          <TextField
-          fullWidth id="outlined-read-only-input"
-          defaultValue="Age"
-
-          InputProps={{
-            readOnly: true,
-            sx: { backgroundColor: '#F5F5F5'},
-          }}
-          />
-          </Grid>
-        </Grid>
+      
+      
 
       {/* GCS Box */}
       <Grid container justifyContent="center" alignItems="center" sx={{ marginBottom: '20px' }}>
@@ -240,5 +233,6 @@ export default function Home() {
 
       </div> {/* end gradient :) */}
     </main>
+    </div>
   )
 }
