@@ -5,7 +5,6 @@ import FractureTypeSelect from './FractureTypeSelect';
 
 export default function FractureForm() {
   const [selectedLocation, setSelectedLocation] = useState("");
-  console.log({selectedLocation})
 
   return (
     <div>

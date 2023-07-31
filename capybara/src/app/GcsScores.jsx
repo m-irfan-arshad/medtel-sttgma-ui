@@ -12,25 +12,31 @@ export default function GcsScores() {
     const [selectedVerbalOption, setSelectedVerbalOption] = useState(0);
     const [selectedMotorOption, setSelectedMotorOption] = useState(0);
     const [gcs_total, setGcsTotal] = useState(0);
+    console.log(selectedEyeOption)
+    console.log(selectedMotorOption)
+    console.log(selectedVerbalOption)
+    console.log(gcs_total)
 
     const handleEyeChange = (selectedEyeOption) => {
-        console.log({selectedEyeOption})
-        setSelectedEyeOption(selectedEyeOption);
+        let eye_int = parseInt(selectedEyeOption);
+        setSelectedEyeOption(eye_int);
         calculateTotalScore(selectedEyeOption, selectedVerbalOption, selectedMotorOption);
       };
     const handleVerbalChange = (selectedVerbalOption) => {
-        console.log({selectedVerbalOption})
-        setSelectedVerbalOption(selectedVerbalOption);
+        let verbal_int = parseInt(selectedVerbalOption);
+        setSelectedVerbalOption(verbal_int);
         calculateTotalScore(selectedEyeOption, selectedVerbalOption, selectedMotorOption);
       };
     const handleMotorChange = (selectedMotorOption) => {
-        console.log({selectedMotorOption})
-        setSelectedMotorOption(selectedMotorOption);
+        let motor_int = parseInt(selectedMotorOption);
+        setSelectedMotorOption(motor_int);
         calculateTotalScore(selectedEyeOption, selectedVerbalOption, selectedMotorOption);
     };
     const calculateTotalScore = (eye, verbal, motor) => {
-        setGcsTotal(eye + verbal + motor);
-        console.log({gcs_total})
+        let eye_int = parseInt(eye);
+        let verbal_int = parseInt(verbal);
+        let motor_int = parseInt(motor);
+        setGcsTotal(eye_int + verbal_int + motor_int);
       };
 
 return (
@@ -70,12 +76,14 @@ return (
                       "2 - abnormal extension (decerebrate)",
                       "1 - no response"]}
                     onChange={handleMotorChange}
+                    
                   /> 
                 </Grid>
                 <Grid item xs={3}>
                 <TextField
                     fullWidth id="outlined-read-only-input"
-                    defaultValue="GCS total score"
+                    value= {gcs_total}
+                    label = "GCS Total"
                     InputProps={{
                     readOnly: true,
                     sx: { backgroundColor: '#eaecef'},
