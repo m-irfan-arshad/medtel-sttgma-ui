@@ -29,9 +29,13 @@ import GcsScores from './GcsScores'
 
 
 export default function Home() {
-  const [global_ais_head_neck, setAIS_head_neck] = useState(0);
   const [gcs_total, setGcsTotal] = useState(-1);
-  console.log(gcs_total)
+  const [ais_head_neck, setAisHeadNeck] = useState(-1);
+  const [ais_chest, setAisChest] = useState(-1);
+  const [ais_extrem, setAisExtrem] = useState(-1);
+
+  console.log(ais_extrem)
+
 
 
 
@@ -86,7 +90,11 @@ export default function Home() {
       
 
       {/* AIS Box */}
-       < AisScores/>
+       < AisScores 
+          setAisHeadNeck={setAisHeadNeck}
+          setAisChest={setAisChest}
+          setAisExtrem = {setAisExtrem}
+        />
 
       {/* CLOSE AIS Box */}
 
