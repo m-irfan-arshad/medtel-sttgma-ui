@@ -16,6 +16,33 @@ export default function CciModal() {
   const [open, setOpen] = useState(false);
   const [tempCheckedItems, setTempCheckedItems] = useState({});
   const [checkedItems, setCheckedItems] = useState({});
+  const [cci_total, setCciTotal] = useState(0);
+  const [buttonSaved, setButtonSaved] = useState(false);
+  console.log(cci_total);
+
+  const checkboxValues = {
+    'Myocardial infarction': 1,
+    'Congestive heart failure': 1,
+    'Peripheral Vascular disease': 1,
+    'Cerebrovascualar disease': 1,
+    'Dementia': 1,
+    'Chronic pulmonary disease': 1,
+    'Connective tissue disease': 1,
+    'Peptic ulcer disease': 1,
+    'Mild liver disease': 1,
+    'Diabetes without': 1,
+    'Hemiplegia': 2,
+    'renal disease': 2,
+    'Diabetes with': 2,
+    'Tumor without metastases': 2,
+    'Leukemia': 2,
+    'Lymphoma': 2,
+    'Moderate or severe liver disease': 3,
+    'Metastatic solid tumor': 6,
+    'AIDS': 6,
+  };
+  
+  
 
   const handleOpen = () => {
     setOpen(true);
@@ -41,6 +68,16 @@ export default function CciModal() {
     setCheckedItems(tempCheckedItems);
     localStorage.setItem('checkedItems', JSON.stringify(tempCheckedItems));
     handleClose();
+
+    // Calculate the total score based on the selected checkboxes
+    let totalScore = 0;
+    for (const [name, isChecked] of Object.entries(tempCheckedItems)) {
+      if (isChecked) {
+        totalScore += checkboxValues[name];
+      }
+    }
+    setCciTotal(totalScore);
+    setButtonSaved(true);
   };
 
 
@@ -60,8 +97,9 @@ export default function CciModal() {
 
   return (
     <div>
-      <Button fullWidth variant="outlined" onClick = {handleOpen} size="large" sx={{height: '56px'}}>
-          CCI
+      <Button 
+        fullWidth variant="outlined" onClick = {handleOpen} size="large" sx={{height: '56px'}}>
+           {buttonSaved ? `${cci_total}` : 'CCI'}
       </Button>
       <Modal
         open={open}

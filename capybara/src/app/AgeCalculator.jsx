@@ -58,6 +58,6 @@ export default function AgeCalculator(){
           }}
           />}
           </Grid>
-        </Grid>
+      </Grid>
     )
 }
