@@ -18,7 +18,7 @@ export default function CciModal() {
   const [checkedItems, setCheckedItems] = useState({});
   const [cci_total, setCciTotal] = useState(0);
   const [buttonSaved, setButtonSaved] = useState(false);
-  console.log(cci_total);
+
 
   const checkboxValues = {
     'Myocardial infarction': 1,
