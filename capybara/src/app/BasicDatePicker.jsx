@@ -7,16 +7,19 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import FormControl from '@mui/material/FormControl';
 
 
-export default function BasicDatePicker() {
+export default function BasicDatePicker({dob, setDOB, handleDOBChange}) {
   return (
 
-    <FormControl fullWidth>
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
-        
-          <DatePicker label="Date of Birth" />
-        
-      </LocalizationProvider>
-    </FormControl>
+
+<FormControl fullWidth>
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      
+        <DatePicker label="Date of Birth" 
+        value = {dob}
+        onChange = {(newValue) => setDOB(newValue)}/>
+      
+    </LocalizationProvider>
+</FormControl>
 
   );
 }

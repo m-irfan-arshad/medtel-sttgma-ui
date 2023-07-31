@@ -11,14 +11,25 @@ import StyledBox from './StyledBox'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import CciModal from './CciModal'
+
+import AgeGetter from './AgeCalculator'
+
+import Head from "next/head"
+import NextHead from './NextHead'
+
+
+
 import MrnField from './MrnField'
 import FractureForm from './FractureForm'
 import GcsScores from './GcsScores'
 
 
 
+
 export default function Home() {
   return (
+    <div>
+    <NextHead/>
     <main>
       <div
         className={styles.gradientBackground}
@@ -43,23 +54,7 @@ export default function Home() {
           <Grid item xs={10.5}>
               <MrnField />
           </Grid>
-        </Grid>
-
-        <Grid container spacing={2} justifyContent = "center"  style={{ marginTop: '15px' }}>
-          <Grid item xs={5.25}>
-            <BasicDatePicker></BasicDatePicker>
-          </Grid>
-          <Grid item xs={5.25}>
-          <TextField
-          fullWidth id="outlined-read-only-input"
-          defaultValue="Age"
-
-          InputProps={{
-            readOnly: true,
-            sx: { backgroundColor: '#eaecef'},
-          }}
-          />
-          </Grid>
+          <AgeGetter/>
         </Grid>
           
           
@@ -268,5 +263,6 @@ export default function Home() {
 
       </div> {/* end gradient :) */}
     </main>
+    </div>
   )
 }
