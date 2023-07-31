@@ -1,0 +1,90 @@
+'use client'
+
+import React, {useState} from 'react';
+import Box from '@mui/material/Box';
+import BasicSelect from './BasicSelect';
+import StyledBox from './StyledBox';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+
+
+
+export default function AisScores({ setAisHeadNeck, setAisChest, setAisExtrem }){
+    const handleHeadNeck = (selectedAisHN) => {
+        let hn_int = parseInt(selectedAisHN);
+        setAisHeadNeck(hn_int);
+      };
+
+    const handleChest = (selectedAisC) => {
+        let chest_int = parseInt(selectedAisC);
+        setAisChest(chest_int);
+      };
+    
+    const handleExtrem = (selectedAisEx) => {
+        let extrem_int = parseInt(selectedAisEx);
+        setAisExtrem(extrem_int);
+      };
+    
+
+    return (
+        <Grid container justifyContent="center" alignItems="center">
+        <Box sx={{ paddingTop: '20px', width: '100%'}}>
+
+        <StyledBox backgroundColor="#f8f9fa">
+            <Grid item xs={12} style={{ mar: '10px' }} sx={{ marginBottom: '10px'}}>
+
+                <Typography align="center"> AIS </Typography>
+            </Grid>
+
+        <Grid container spacing = {2} justifyContent = "center" sx={{ marginBottom: '20px' }}>
+                <Grid item xs={12}>
+                    <BasicSelect
+                    label = {"AIS Head and Neck"}
+                    menuItems = {["0 - no injury to head or neck",
+                        "1 - loss of consciousness; facial fracture non-displaced",
+                        "2 - Skull fracture non-displaced; facial fractures displaced; c-spine transverse or spinous process fracture, stable vertebral body fracture",
+                        "3 - traumatic brain injury (SAH); facial fracture requiring admission, transient spinal cord injury; unstable vertebral body fx",
+                        "4 - traumatic brain injury (ICH, SDH); facial fracture requiring OR; incomplete spinal cord injury or c-spine fracture requiring surgery",
+                        "5 - traumatic brain injury; possible brain death; complete spinal cord injury; c-spine fractures with spinal cord injury",
+                        "6 - brain death; un-survivable spinal cord injury"]}
+                    onChange = {handleHeadNeck}
+                    /> 
+                </Grid>
+        </Grid>
+        <Grid container spacing = {2} justifyContent = "center" sx={{ marginBottom: '20px' }}>
+                <Grid item xs={12}>
+                    <BasicSelect
+                    label = {"AIS Chest"}
+                    menuItems = {["0 - no chest injury",
+                        "1 - 1-3 rib fractures; closed clavicle fracture, minor cardiac contusion",
+                        "2 - >3 adjacent ribs; displaced clavicle; scapular fracture; t-spine transverse or spinous process fracture; stable vertebral body fracture",
+                        "3 - Pneumothorax; open/displaced sternum; transient spinal cord injury; unstable t-spine vertebral body fx; unilateral lung contusion;",
+                        "4 - Pneumothorax; unilateral flail segment; incomplete spinal cord injury or t-spine fracture requiring surgery; bilateral lung contusion; major cardiac contusion (EF<25% without heart disease )",
+                        "5 - Pneumothorax, bilateral flail segment; t-spine fractures with spinal cord injury",
+                        "6 - Un-survivable injury"]}
+                    onChange = {handleChest}
+                    /> 
+                </Grid>
+        </Grid>
+        <Grid container spacing = {2} justifyContent = "center" sx={{ marginBottom: '20px' }}>
+                <Grid item xs={12}>
+                    <BasicSelect
+                    label = {"AIS Extremity/Pelvis"}
+                    menuItems = {["0 - No Injury",
+                        "1 - Un-survivable injury",
+                        "2 - Closed Dislocation, Closed fracture does not need ORIF. Cast/splint",
+                        "3 - Fracture requiring ORIF, Closed acetabulum fx Open dislocations all hip fractures",
+                        "4 - All Open Fractures, Open book pelvis, femur fracture.",
+                        "5 - Open pelvic fracture, retroperitoneal hematoma, traumatic amputation, mangled extremity",
+                        "6 - Fatal Injury "]}
+                        onChange = {handleExtrem}
+                    />              
+                </Grid>
+        </Grid>
+
+
+        </StyledBox>
+        </Box>
+        </Grid>
+    )
+    }
