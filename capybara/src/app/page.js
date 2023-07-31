@@ -33,8 +33,9 @@ export default function Home() {
   const [ais_head_neck, setAisHeadNeck] = useState(-1);
   const [ais_chest, setAisChest] = useState(-1);
   const [ais_extrem, setAisExtrem] = useState(-1);
+  const [cci_total, setCciTotal] = useState(-1);
 
-  console.log(ais_extrem)
+  console.log(cci_total)
 
 
 
@@ -120,7 +121,7 @@ export default function Home() {
 
         <Grid container spacing = {2} justifyContent = "center">
               <Grid item xs={3.5}>
-                   <CciModal></CciModal>
+                   <CciModal setCciTotal = {setCciTotal}></CciModal>
                 </Grid>
                 <Grid item xs={3.5}>
                   <BasicSelect
