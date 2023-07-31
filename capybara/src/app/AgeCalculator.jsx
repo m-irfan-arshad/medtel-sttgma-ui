@@ -50,6 +50,7 @@ export default function AgeCalculator(){
           {age && <TextField
           fullWidth id="outlined-read-only-input"
           defaultValue={age}
+          label = "age"
 
           InputProps={{
             readOnly: true,
