@@ -20,6 +20,7 @@ import AgeCalculator from './AgeCalculator'
 import AmbSelect from './AmbSelect';
 import Head from "next/head"
 import NextHead from './NextHead'
+import STTGMA_Score from './STTGMA_Score'
 
 
 
@@ -28,7 +29,7 @@ import FractureForm from './FractureForm'
 import GcsScores from './GcsScores'
 import AsaSelect from './AsaSelect';
 
-import STTGMA from './STTGMA_Score'
+
 
 
 
@@ -141,35 +142,7 @@ export default function Home() {
       <Grid container justifyContent="center" alignItems="center" sx={{ marginBottom: '20px' }}>
       
 
-        <Grid container spacing = {2} justifyContent = "center">
-                <Grid item xs={3.5}>
-                  <Button fullWidth variant="contained" size="large" color = "success" sx={{height: '56px', backgroundColor: '#71D57F'}} >
-                      Calculate STTGMA
-                  </Button>
-                </Grid>
-                <Grid item xs={3.5}>
-                  <TextField
-                    fullWidth id="outlined-read-only-input"
-                    defaultValue="STTGMA Score"
-
-                    InputProps={{
-                      readOnly: true,
-                      sx: { backgroundColor: '#eaecef'},
-                    }}
-                    />
-                </Grid>
-                <Grid item xs={3.5}>
-                    <TextField
-                      fullWidth id="outlined-read-only-input"
-                      defaultValue="Risk Level"
-
-                      InputProps={{
-                        readOnly: true,
-                        sx: { backgroundColor: '#eaecef'},
-                      }}
-                      />
-                </Grid>
-        </Grid>
+        <STTGMA_Score age= {age} gcs_total = {gcs_total} ais_head_neck = {ais_head_neck} ais_chest = {ais_chest} cci_index = {cci_total} amb_status = {amb} covid_value = {covid_index} asa = {asa}/>
 
       </Grid>
 
