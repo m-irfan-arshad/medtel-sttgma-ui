@@ -12,8 +12,9 @@ export default function STTGMA_Score(props){
 	const calculateSTTGMA = (age, gcs_total, ais_head_neck,ais_chest,cci_index,amb_status,covid_value,asa) => {
 		const sttgma_power = -1 * (-15.76 + 0.026 * age + 0.207 * gcs_total + 0.354 * ais_head_neck + 0.441 * ais_chest + 0.165 * cci_index + 0.335 * amb_status + 2.727 * covid_value + 1.65 * asa);
 		const sttgma_e_val = Math.exp(sttgma_power);
-		const sttgma = 1/(1+ sttgma_e_val);
+		const sttgma = 1/(1+ sttgma_e_val)
 		setRoundedSttgma(sttgma.toFixed(5));
+
       };
 	
 	  const handleCalculateClick = () => {
