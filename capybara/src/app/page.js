@@ -13,9 +13,10 @@ import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import CciModal from './CciModal'
 import AisScores from './AisScores'
+import CovidSelect from './CovidSelect'
 
 import AgeCalculator from './AgeCalculator'
-
+import AmbSelect from './AmbSelect';
 import Head from "next/head"
 import NextHead from './NextHead'
 
@@ -24,6 +25,7 @@ import NextHead from './NextHead'
 import MrnField from './MrnField'
 import FractureForm from './FractureForm'
 import GcsScores from './GcsScores'
+import AsaSelect from './AsaSelect';
 
 
 
@@ -34,9 +36,10 @@ export default function Home() {
   const [ais_chest, setAisChest] = useState(-1);
   const [ais_extrem, setAisExtrem] = useState(-1);
   const [cci_total, setCciTotal] = useState(-1);
-
-  console.log(cci_total)
-
+  const [covid_index, setCovidIndex] = useState(-1);
+  const [asa, setAsa] = useState (-1);
+  const [amb, setAmb] = useState(-1);
+  console.log(asa)
 
 
 
@@ -102,15 +105,7 @@ export default function Home() {
       {/* ASA */}
       <Grid container justifyContent = "center" alignItems = "center" sx= {{marginTop: '40px'}}>
         <Grid item xs={10.5}>
-          <BasicSelect
-            label = {"ASA"}
-            menuItems = {["1 - A normal healthy patient",
-              "2 - A patient with mild systemic disease",
-              "3 - A patient with severe systemic disease",
-              "4 - A patient with severe systemic disease that is a constant threat to life",
-              "5 - A moribund patient who is not expected to survive without the operation",
-              "6 -A declared brain-dead patient whose organs are being removed for donor purposes"]}
-          />
+          <AsaSelect setAsa = {setAsa}/>
         </Grid>
       </Grid>
 
@@ -124,18 +119,10 @@ export default function Home() {
                    <CciModal setCciTotal = {setCciTotal}></CciModal>
                 </Grid>
                 <Grid item xs={3.5}>
-                  <BasicSelect
-                    label = {"Amb Status"}
-                    menuItems = {["1 - Community ambulator",
-                    "2 - Household ambulator",
-                    "3 - Minimal/non-ambulatory"]}
-                  />
+                  <AmbSelect setAmb = {setAmb}/>
                 </Grid>
                 <Grid item xs={3.5}>
-                  <BasicSelect
-                    label = {"Covid"}
-                    menuItems = {["Negative", "Positive/Suspected"]}
-                  /> 
+                  <CovidSelect setCovidIndex = {setCovidIndex} />
                 </Grid>
         </Grid>
         
