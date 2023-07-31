@@ -7,15 +7,12 @@ import Box from '@mui/material/Box'; // Import Box component from MUI
 import Typography from '@mui/material/Typography'; // Import Typography component from MUI
 import TextField from '@mui/material/TextField'; // Import TextField component from MUI
 
-export default function GcsScores() {
+export default function GcsScores({ gcs_total, setGcsTotal }) {
     const [selectedEyeOption, setSelectedEyeOption] = useState(0);
     const [selectedVerbalOption, setSelectedVerbalOption] = useState(0);
     const [selectedMotorOption, setSelectedMotorOption] = useState(0);
-    const [gcs_total, setGcsTotal] = useState(0);
-    console.log(selectedEyeOption)
-    console.log(selectedMotorOption)
-    console.log(selectedVerbalOption)
-    console.log(gcs_total)
+    const [local_gcs_total, setLocalGcsTotal] = useState(0);
+
 
     const handleEyeChange = (selectedEyeOption) => {
         let eye_int = parseInt(selectedEyeOption);
@@ -36,6 +33,7 @@ export default function GcsScores() {
         let eye_int = parseInt(eye);
         let verbal_int = parseInt(verbal);
         let motor_int = parseInt(motor);
+        setLocalGcsTotal(eye_int + verbal_int + motor_int);
         setGcsTotal(eye_int + verbal_int + motor_int);
       };
 
@@ -82,7 +80,7 @@ return (
                 <Grid item xs={3}>
                 <TextField
                     fullWidth id="outlined-read-only-input"
-                    value= {gcs_total}
+                    value= {local_gcs_total}
                     label = "GCS Total"
                     InputProps={{
                     readOnly: true,

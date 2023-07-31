@@ -29,8 +29,9 @@ import GcsScores from './GcsScores'
 
 
 export default function Home() {
-  const [ais_head_neck, setAIS_head_neck] = useState(0);
-  console.log(ais_head_neck)
+  const [global_ais_head_neck, setAIS_head_neck] = useState(0);
+  const [gcs_total, setGcsTotal] = useState(-1);
+  console.log(gcs_total)
 
 
 
@@ -75,7 +76,7 @@ export default function Home() {
               <Typography align="center"> GCS Score </Typography>
             </Grid>
 
-            <GcsScores/> 
+            <GcsScores gcs_total={gcs_total} setGcsTotal={setGcsTotal} /> 
             
         </StyledBox>
       </Box>
