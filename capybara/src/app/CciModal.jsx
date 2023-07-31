@@ -12,11 +12,11 @@ import DialogActions from '@mui/material/DialogActions';
 import Grid from '@mui/material/Grid'
 
 
-export default function CciModal() {
+export default function CciModal({setCciTotal}) {
   const [open, setOpen] = useState(false);
   const [tempCheckedItems, setTempCheckedItems] = useState({});
   const [checkedItems, setCheckedItems] = useState({});
-  const [cci_total, setCciTotal] = useState(0);
+  const [local_cci_total, setLocalCciTotal] = useState(0);
   const [buttonSaved, setButtonSaved] = useState(false);
 
 
@@ -76,6 +76,7 @@ export default function CciModal() {
         totalScore += checkboxValues[name];
       }
     }
+    setLocalCciTotal(totalScore);
     setCciTotal(totalScore);
     setButtonSaved(true);
   };
@@ -99,7 +100,7 @@ export default function CciModal() {
     <div>
       <Button 
         fullWidth variant="outlined" onClick = {handleOpen} size="large" sx={{height: '56px'}}>
-           {buttonSaved ? `${cci_total}` : 'CCI'}
+           {buttonSaved ? `${local_cci_total}` : 'CCI'}
       </Button>
       <Modal
         open={open}
