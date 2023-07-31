@@ -46,6 +46,8 @@ export default function Home() {
   const [covid_index, setCovidIndex] = useState(-1);
   const [asa, setAsa] = useState (-1);
   const [amb, setAmb] = useState(-1);
+  const [sttgmaScore, setSttgma] = useState (-1);
+  const [risk_group, setRisk] = useState("Risk Level");
   console.log(asa)
 
 
@@ -142,7 +144,7 @@ export default function Home() {
       <Grid container justifyContent="center" alignItems="center" sx={{ marginBottom: '20px' }}>
       
 
-        <STTGMA_Score age= {age} gcs_total = {gcs_total} ais_head_neck = {ais_head_neck} ais_chest = {ais_chest} cci_index = {cci_total} amb_status = {amb} covid_value = {covid_index} asa = {asa}/>
+        <STTGMA_Score age= {age} gcs_total = {gcs_total} ais_head_neck = {ais_head_neck} ais_chest = {ais_chest} cci_index = {cci_total} amb_status = {amb} covid_value = {covid_index} asa = {asa} setSttgma = {setSttgma} sttgmaScore = {sttgmaScore} risk_group = {risk_group} setRisk = {setRisk} />
 
       </Grid>
 
