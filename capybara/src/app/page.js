@@ -1,3 +1,4 @@
+
 'use client'
 import React, { useState } from 'react';
 import Image from 'next/image'
@@ -25,20 +26,19 @@ import MrnField from './MrnField'
 import FractureForm from './FractureForm'
 import GcsScores from './GcsScores'
 
+import STTGMA from './STTGMA_Score'
+
+
 
 
 
 export default function Home() {
+
+  const [age,setAge] = useState("Age")
   const [gcs_total, setGcsTotal] = useState(-1);
   const [ais_head_neck, setAisHeadNeck] = useState(-1);
   const [ais_chest, setAisChest] = useState(-1);
   const [ais_extrem, setAisExtrem] = useState(-1);
-
-  console.log(ais_extrem)
-
-
-
-
   return (
     <div>
     <NextHead/>
@@ -64,9 +64,10 @@ export default function Home() {
         </Grid>
 
           <Grid item xs={10.5}>
+            
               <MrnField />
           </Grid>
-          <AgeCalculator/>
+          <AgeCalculator age = {age} setAge = {setAge} />
         </Grid>
           
           
@@ -149,7 +150,7 @@ export default function Home() {
 
         <Grid container spacing = {2} justifyContent = "center">
                 <Grid item xs={3.5}>
-                  <Button fullWidth variant="contained" size="large" color = "success" sx={{height: '56px', backgroundColor: '#71D57F'}}>
+                  <Button fullWidth variant="contained" size="large" color = "success" sx={{height: '56px', backgroundColor: '#71D57F'}} >
                       Calculate STTGMA
                   </Button>
                 </Grid>
