@@ -6,10 +6,10 @@ import TextField from '@mui/material/TextField'
 
 
 
-export default function AgeCalculator(){
-    
+export default function AgeCalculator(props){
+  const [age,setAge] = [props.age,props.setAge]  
   const [dob, setDOB] = useState('');
-  const [age, setAge] = useState('Age');
+  
 
   const handleDOBChange = (event) => {
     setDOB(event);
@@ -32,6 +32,7 @@ export default function AgeCalculator(){
     if (currentMonth < dobMonth || (currentMonth === dobMonth && currentDay < dobDay)) {
       calculatedAge--;
     }
+    console.log(typeof setAge)
     setAge(calculatedAge.toString());
   };
 

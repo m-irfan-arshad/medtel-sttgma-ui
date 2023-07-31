@@ -1,10 +1,11 @@
+"use client"
 import Image from 'next/image'
 import styles from './page.module.css'
 import BasicSelect from './BasicSelect'
 import BasicDatePicker from './BasicDatePicker'
 import Grid from '@mui/material/Grid'
 import { Select } from '@mui/material'
-import React from 'react';
+import React, {useState} from "react"
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box'
 import StyledBox from './StyledBox'
@@ -12,7 +13,7 @@ import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import CciModal from './CciModal'
 
-import AgeGetter from './AgeCalculator'
+import AgeCalculator from './AgeCalculator'
 
 import Head from "next/head"
 import NextHead from './NextHead'
@@ -22,10 +23,16 @@ import NextHead from './NextHead'
 import MrnField from './MrnField'
 import FractureForm from './FractureForm'
 
+import STTGMA from './STTGMA_Score'
+
+
 
 
 
 export default function Home() {
+  const [age,setAge] = useState("Age")
+  const [amb,setAmb] = useState("")
+  const [covid,setCovid] = useState("")
   return (
     <div>
     <NextHead/>
@@ -51,9 +58,11 @@ export default function Home() {
         </Grid>
 
           <Grid item xs={10.5}>
+            
               <MrnField />
           </Grid>
-          <AgeGetter/>
+          {console.log(typeof setAge)}
+          <AgeCalculator age = {age} setAge = {setAge} />
         </Grid>
 
       {/* GCS Box */}
@@ -223,7 +232,7 @@ export default function Home() {
 
         <Grid container spacing = {2} justifyContent = "center">
                 <Grid item xs={3.5}>
-                  <Button fullWidth variant="contained" size="large" color = "success" sx={{height: '56px', backgroundColor: '#71D57F'}}>
+                  <Button fullWidth variant="contained" size="large" color = "success" sx={{height: '56px', backgroundColor: '#71D57F'}} >
                       Calculate STTGMA
                   </Button>
                 </Grid>
