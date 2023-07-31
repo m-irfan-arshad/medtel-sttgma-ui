@@ -12,7 +12,7 @@ import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import CciModal from './CciModal'
 
-import AgeGetter from './AgeCalculator'
+import AgeCalculator from './AgeCalculator'
 
 import Head from "next/head"
 import NextHead from './NextHead'
@@ -54,7 +54,7 @@ export default function Home() {
           <Grid item xs={10.5}>
               <MrnField />
           </Grid>
-          <AgeGetter/>
+          <AgeCalculator/>
         </Grid>
           
           
