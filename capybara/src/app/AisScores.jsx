@@ -9,7 +9,23 @@ import Typography from '@mui/material/Typography';
 
 
 
-export default function AisScores(){
+export default function AisScores({ setAisHeadNeck, setAisChest, setAisExtrem }){
+    const handleHeadNeck = (selectedAisHN) => {
+        let hn_int = parseInt(selectedAisHN);
+        setAisHeadNeck(hn_int);
+      };
+
+    const handleChest = (selectedAisC) => {
+        let chest_int = parseInt(selectedAisC);
+        setAisChest(chest_int);
+      };
+    
+    const handleExtrem = (selectedAisEx) => {
+        let extrem_int = parseInt(selectedAisEx);
+        setAisExtrem(extrem_int);
+      };
+    
+
     return (
         <Grid container justifyContent="center" alignItems="center">
         <Box sx={{ paddingTop: '20px', width: '100%'}}>
@@ -31,6 +47,7 @@ export default function AisScores(){
                         "4 - traumatic brain injury (ICH, SDH); facial fracture requiring OR; incomplete spinal cord injury or c-spine fracture requiring surgery",
                         "5 - traumatic brain injury; possible brain death; complete spinal cord injury; c-spine fractures with spinal cord injury",
                         "6 - brain death; un-survivable spinal cord injury"]}
+                    onChange = {handleHeadNeck}
                     /> 
                 </Grid>
         </Grid>
@@ -45,6 +62,7 @@ export default function AisScores(){
                         "4 - Pneumothorax; unilateral flail segment; incomplete spinal cord injury or t-spine fracture requiring surgery; bilateral lung contusion; major cardiac contusion (EF<25% without heart disease )",
                         "5 - Pneumothorax, bilateral flail segment; t-spine fractures with spinal cord injury",
                         "6 - Un-survivable injury"]}
+                    onChange = {handleChest}
                     /> 
                 </Grid>
         </Grid>
@@ -59,7 +77,8 @@ export default function AisScores(){
                         "4 - All Open Fractures, Open book pelvis, femur fracture.",
                         "5 - Open pelvic fracture, retroperitoneal hematoma, traumatic amputation, mangled extremity",
                         "6 - Fatal Injury "]}
-                    /> 
+                        onChange = {handleExtrem}
+                    />              
                 </Grid>
         </Grid>
 
