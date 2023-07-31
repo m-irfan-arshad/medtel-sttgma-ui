@@ -8,7 +8,7 @@ import FormControl from '@mui/material/FormControl';
 import { styled } from '@mui/system';
 
 
-export default function BasicDatePicker({dob,handleDOBChange}) {
+export default function BasicDatePicker(props) {
   const CenteredFormControl = styled(FormControl)({
     display: 'flex',
     justifyContent: 'center',
@@ -18,10 +18,11 @@ export default function BasicDatePicker({dob,handleDOBChange}) {
 
 <FormControl fullWidth>
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      
+      {console.log(typeof props.handleDOBChange)}
         <DatePicker label="Date of Birth" 
-        value = {dob}
-        onChange = {(newValue) => handleDOBChange(newValue)}/>
+        value = {props.dob}
+        
+        onChange = {(newValue) => props.handleDOBChange(newValue)}/>
       
     </LocalizationProvider>
 </FormControl>
