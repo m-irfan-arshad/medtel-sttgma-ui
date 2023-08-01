@@ -3,49 +3,76 @@ import React, { useState } from 'react';
 import FractureLocationSelect from './FractureLocationSelect';
 import FractureTypeSelect from './FractureTypeSelect';
 import  Grid  from '@mui/material/Grid';
+import BasicSelect from './BasicSelect';
+import ProcedureSelect from './ProcedureSelect';
 import TextField from '@mui/material/TextField'
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import { Typography } from '@mui/material';
 
 export default function FractureForm({risk_group}) {
   const [selectedLocation, setSelectedLocation] = useState("");
   const [selectedType, setSelectedType] = useState("");
-  const [procedure, setProcedure] = useState("Recommended Procedure")
+  const [procedureRec, setProcedureRec] = useState(["Recommended Procedure"])
+  const [backgroundColor, setBackgroundColor] = useState("white")
+
+  const handleProcedureChoice = (selectedProcedure) => {
+    console.log("selected: " + selectedProcedure)
+    if (selectedType != "" || selectedLocation == 'S')
+    { 
+      setBackgroundColor("#FFFDA3")
+      for (let i = 0; i < procedureRec.length; i++) {
+        console.log(procedureRec[i])
+        if (procedureRec[i] == selectedProcedure)
+        {
+          setBackgroundColor("#E5FCE9")
+        }
+      } 
+    }
+  };
 
   const checkSubtroch = (selectedLocation) =>{
+    setBackgroundColor("white")
     console.log(selectedLocation)
     if (selectedLocation == 'S' )
     {
-      setProcedure("Long Nail")
+      setProcedureRec(["Long Nail"])
     }
   }
 
-  const calcProcedure = (selectedType) => {
+  const calcProcedureRec = (selectedType) => {
+    setBackgroundColor("white")
     if (selectedType == 'n' )
     {
-      setProcedure ("CRPP")
+      setProcedureRec (["CRPP"])
 
     } 
     else if (selectedType == 'd')
     {
       if (risk_group == "Q1: Low Risk" || risk_group== "Q2: Mild Risk" )
       {
-        setProcedure("THA")
+        setProcedureRec(["THA"])
       } 
-      else if (risk_group == "Q3: Moderate Risk" || risk_group== "Q4: Highest Risk")
+      else if (risk_group == "Q3: Moderate Risk")
       {
-        setProcedure("CRPP")
+        setProcedureRec(["Hemi"])
       }
+      else if (risk_group== "Q4: Highest Risk")
+      {
+        setProcedureRec(["Hemi", "CRPP"])
+      }
+      
     } 
     else if (selectedType == 'S') 
     {
-      setProcedure("Sliding hip screw (SHS) or Short Nail")
+      setProcedureRec(["Sliding Hip Screw", "Short Nail"])
     } 
     else if (selectedType == "U")
     {
-      setProcedure("Short Nail")
+      setProcedureRec(["Short Nail"])
     } 
     else if (selectedType == "R")
     {
-      setProcedure("Short or Long Nail")
+      setProcedureRec(["Short Nail", "Long Nail"])
     }
   };
 
@@ -53,20 +80,22 @@ export default function FractureForm({risk_group}) {
     <Grid container item xs= {5} direction = "column">
       
       <FractureLocationSelect onSelect={setSelectedLocation} checkSubtroch = {checkSubtroch} />
-      {selectedLocation !== "S" && <FractureTypeSelect selectedLocation={selectedLocation} setSelectedType = {setSelectedType} calcProcedure = {calcProcedure} />}
+      {selectedLocation !== "S" && <FractureTypeSelect selectedLocation={selectedLocation} setSelectedType = {setSelectedType} calcProcedureRec = {calcProcedureRec} />}
       <hr/>
           <Grid style= {{marginTop: '20px', marginBottom: '20px'}}>
-              <TextField
-                    fullWidth id="outlined-read-only-input"
-                    value= {procedure}
-                    label = "procedure"
-                    InputProps={{
-                    readOnly: true,
-                    sx: { backgroundColor: '#eaecef'},
-                    }}
-              />
+            <ProcedureSelect
+              label = "Procedure"
+              menuItems = {["CRPP", "THA", "Hemi" , "Sliding Hip Screw", "Short Nail", "Long Nail"]}
+              procedureRec = {procedureRec}
+              backgroundColor = {backgroundColor}
+              onChange = {handleProcedureChoice}
+            />
           </Grid>
-          
+          {/* {backgroundColor == "#FFFDA3" && <Grid container direction = "row">
+              <InfoOutlinedIcon/>
+              <Typography> more details</Typography>
+          </Grid>} */}
+            
     </Grid>
   );
 }

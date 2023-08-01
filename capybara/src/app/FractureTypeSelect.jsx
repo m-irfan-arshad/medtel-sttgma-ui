@@ -4,12 +4,12 @@ import React, { useState, useEffect } from 'react';
 import BasicSelect from './BasicSelect';
 import Grid from '@mui/material/Grid';
 
-export default function FractureTypeSelect({ selectedLocation, setSelectedType, calcProcedure }) {
+export default function FractureTypeSelect({ selectedLocation, setSelectedType, calcProcedureRec }) {
   const [menuItems, setMenuItems] = useState([]);
 
   const handleTypeChange = (selectedOption) => {
     setSelectedType(selectedOption);
-    calcProcedure(selectedOption);
+    calcProcedureRec(selectedOption);
   };
 
   useEffect(() => {
