@@ -25,7 +25,7 @@ export default function UploadButtons() {
         
         <label htmlFor="upload-image">
             <Box width="100%" alignItems = "left">
-            <Button variant = "contained" component="span" sx={{ width: "100%", backgroundColor: "#E3F4F9", color: "grey"}}>
+            <Button variant = "contained" component="span" sx={{ width: "100%", backgroundColor: "#DBF6FF", color: "grey"}}>
                 Upload X-Ray Image
             </Button>
             </Box>
