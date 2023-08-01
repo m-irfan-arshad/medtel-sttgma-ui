@@ -28,6 +28,7 @@ import MrnField from './MrnField'
 import FractureForm from './FractureForm'
 import GcsScores from './GcsScores'
 import AsaSelect from './AsaSelect';
+import FileUpload from './FileUpload';
 
 
 
@@ -165,11 +166,11 @@ export default function Home() {
       <Grid container spacing = {2} style={{ marginBottom: '20px'}} justifyContent="left">
         <Grid item xs = {7} sm = {7}>
           <Typography align="left" color = "#BEBEBE" style= {{marginLeft: '20px'}}> X-RAY Upload </Typography>
-          <StyledBox backgroundColor="#f8f9fa" borderRadius= '10px'  width= '100%' height= '100%' >
-            <div style={{ position: 'relative', width: '100%', height: '100%', paddingTop: '100%' }}>
-              <Image src = "/images/X-ray_of_hip.jpg" objectFit="layout" layout= "fill" alt = "XRay"></Image>
-            </div> 
-           </StyledBox>
+          
+            
+          <FileUpload/>
+
+
         </Grid>
         
           <FractureForm risk_group = {risk_group}/>
