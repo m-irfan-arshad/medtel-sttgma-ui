@@ -40,13 +40,13 @@ export default function AisScores({ setAisHeadNeck, setAisChest, setAisExtrem })
                 <Grid item xs={12}>
                     <BasicSelect
                     label = {"AIS Head and Neck"}
-                    menuItems = {["0 - no injury to head or neck",
-                        "1 - loss of consciousness; facial fracture non-displaced",
+                    menuItems = {["0 - No injury to head or neck",
+                        "1 - Loss of consciousness; facial fracture non-displaced",
                         "2 - Skull fracture non-displaced; facial fractures displaced; c-spine transverse or spinous process fracture, stable vertebral body fracture",
-                        "3 - traumatic brain injury (SAH); facial fracture requiring admission, transient spinal cord injury; unstable vertebral body fx",
-                        "4 - traumatic brain injury (ICH, SDH); facial fracture requiring OR; incomplete spinal cord injury or c-spine fracture requiring surgery",
-                        "5 - traumatic brain injury; possible brain death; complete spinal cord injury; c-spine fractures with spinal cord injury",
-                        "6 - brain death; un-survivable spinal cord injury"]}
+                        "3 - Traumatic brain injury (SAH); facial fracture requiring admission, transient spinal cord injury; unstable vertebral body fx",
+                        "4 - Traumatic brain injury (ICH, SDH); facial fracture requiring OR; incomplete spinal cord injury or c-spine fracture requiring surgery",
+                        "5 - Traumatic brain injury; possible brain death; complete spinal cord injury; c-spine fractures with spinal cord injury",
+                        "6 - Brain death; un-survivable spinal cord injury"]}
                     onChange = {handleHeadNeck}
                     /> 
                 </Grid>
@@ -55,7 +55,7 @@ export default function AisScores({ setAisHeadNeck, setAisChest, setAisExtrem })
                 <Grid item xs={12}>
                     <BasicSelect
                     label = {"AIS Chest"}
-                    menuItems = {["0 - no chest injury",
+                    menuItems = {["0 - No chest injury",
                         "1 - 1-3 rib fractures; closed clavicle fracture, minor cardiac contusion",
                         "2 - >3 adjacent ribs; displaced clavicle; scapular fracture; t-spine transverse or spinous process fracture; stable vertebral body fracture",
                         "3 - Pneumothorax; open/displaced sternum; transient spinal cord injury; unstable t-spine vertebral body fx; unilateral lung contusion;",
@@ -71,7 +71,7 @@ export default function AisScores({ setAisHeadNeck, setAisChest, setAisExtrem })
                     <BasicSelect
                     label = {"AIS Extremity/Pelvis"}
                     menuItems = {["0 - No Injury",
-                        "1 - Un-survivable injury",
+                        "1 - Contusion or sprain",
                         "2 - Closed Dislocation, Closed fracture does not need ORIF. Cast/splint",
                         "3 - Fracture requiring ORIF, Closed acetabulum fx Open dislocations all hip fractures",
                         "4 - All Open Fractures, Open book pelvis, femur fracture.",
