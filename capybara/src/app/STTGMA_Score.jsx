@@ -17,7 +17,7 @@ export default function STTGMA_Score(props){
 		const sttgma = 1/(1+ sttgma_e_val)
 		setRoundedSttgma(sttgma.toFixed(5));
 		setSttgma(sttgma)
-		calculateRiskGroup()
+		calculateRiskGroup(sttgma)
 
       };
 	
@@ -25,8 +25,10 @@ export default function STTGMA_Score(props){
 		calculateSTTGMA(age, gcs_total, ais_head_neck, ais_chest, cci_index, amb_status, covid_value, asa);
 	  };
 
-	  const calculateRiskGroup = () => {             
-			const sttgma_percent = sttgmaScore * 100                                       
+	  const calculateRiskGroup = (sttgmaScore) => {             
+			let sttgma_percent = sttgmaScore * 100  
+			console.log("sttgma_score:" + sttgmaScore)
+			console.log("sttgma_percent:" + sttgma_percent)                                     
 			if (sttgma_percent < 0.24)
 			{
 				setButtonColor("#8feba8")
