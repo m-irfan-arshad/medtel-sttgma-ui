@@ -8,7 +8,7 @@ export default function STTGMA_Score(props){
 	const {age, gcs_total, ais_head_neck,ais_chest,cci_index,amb_status,covid_value,asa, setSttgma, sttgmaScore, risk_group, setRisk} = props
 	const [buttonColor, setButtonColor] = useState('#eaecef');
 	const [textColor, setTextColor] = useState('black');
-	const [rounded_sttgma, setRoundedSttgma] = useState(null);
+	const [rounded_sttgma, setRoundedSttgma] = useState("STTGMA Score");
 
 
 	const calculateSTTGMA = (age, gcs_total, ais_head_neck,ais_chest,cci_index,amb_status,covid_value,asa) => {
@@ -79,8 +79,6 @@ export default function STTGMA_Score(props){
 				<Grid item xs={3.5}>
 						<TextField
 							fullWidth id="outlined-read-only-input"
-							defaultValue="STTGMA Score"
-							label = "score"
 							value={rounded_sttgma}
 
 							InputProps={{
@@ -92,7 +90,6 @@ export default function STTGMA_Score(props){
                 <Grid item xs={3.5}>
                     <TextField
                       fullWidth id="outlined-read-only-input"
-					  label = "risk"
 					  value = {risk_group}
                       InputProps={{
                         readOnly: true,

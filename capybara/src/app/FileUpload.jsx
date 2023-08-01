@@ -7,7 +7,7 @@ import Grid from "@mui/material/Grid";
 import Box from '@mui/material/Box'
 
 export default function UploadButtons() {
-  const [imageUrl, setImageUrl] = useState(null);
+  const [imageUrl, setImageUrl] = useState();
 
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
