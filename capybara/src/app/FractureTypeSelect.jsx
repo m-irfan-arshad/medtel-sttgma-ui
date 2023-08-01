@@ -4,8 +4,13 @@ import React, { useState, useEffect } from 'react';
 import BasicSelect from './BasicSelect';
 import Grid from '@mui/material/Grid';
 
-export default function FractureTypeSelect({ selectedLocation }) {
+export default function FractureTypeSelect({ selectedLocation, setSelectedType, calcProcedure }) {
   const [menuItems, setMenuItems] = useState([]);
+
+  const handleTypeChange = (selectedOption) => {
+    setSelectedType(selectedOption);
+    calcProcedure(selectedOption);
+  };
 
   useEffect(() => {
     // Update menuItems whenever selectedLocation changes
@@ -33,6 +38,7 @@ export default function FractureTypeSelect({ selectedLocation }) {
       <BasicSelect
         label="fracture type"
         menuItems={menuItems}
+        onChange = {handleTypeChange}
       />
     </Grid>
   );
