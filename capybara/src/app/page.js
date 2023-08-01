@@ -60,7 +60,7 @@ export default function Home() {
         className={styles.gradientBackground}
         // You can adjust the gradient colors and angle as needed
         style={{
-          background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+          background: 'linear-gradient(45deg, #37b9f7 30%, #3a62f7 90%)',
           borderRadius: '8px', // Optional: add border-radius for rounded corners
           padding: '20px', // Optional: add padding to the container
         }}
