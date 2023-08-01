@@ -59,6 +59,7 @@ export default function FractureForm({risk_group}) {
               <TextField
                     fullWidth id="outlined-read-only-input"
                     value= {procedure}
+                    label = "procedure"
                     InputProps={{
                     readOnly: true,
                     sx: { backgroundColor: '#eaecef'},

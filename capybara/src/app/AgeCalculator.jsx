@@ -43,21 +43,26 @@ export default function AgeCalculator(props){
   },[dob])
 
     return(
-    <Grid container spacing={2} justifyContent = "center"  style={{ marginTop: '15px' }}>
-          <Grid item xs={5}>
+      <div style={{ display: 'flex', justifyContent: 'center' ,width: '100%' }}>
+        <Grid container spacing={2} justifyContent = "center" alignItems={"center"}  style={{ marginTop: '15px', marginRight: '4px',marginLeft: '4px'  }}>
+    
+          <Grid item xs={5.25}>
             <BasicDatePicker dob = {dob} handleDOBChange={handleDOBChange}></BasicDatePicker>
           </Grid>
-          <Grid item xs={5}>
-          {age && <TextField
-          fullWidth id="outlined-read-only-input"
-          defaultValue={age}
+          <Grid item xs={5.25}>
 
-          InputProps={{
-            readOnly: true,
-            sx: { backgroundColor: '#F5F5F5'},
-          }}
-          />}
+            <TextField
+              fullWidth id="outlined-read-only-input"
+              defaultValue= {age}
+              label = "age"
+              InputProps={{
+                readOnly: true,
+                sx: { backgroundColor: '#eaecef'},
+              }}
+            />
           </Grid>
         </Grid>
+      </div>
+
     )
 }

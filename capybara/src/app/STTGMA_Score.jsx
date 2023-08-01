@@ -80,6 +80,7 @@ export default function STTGMA_Score(props){
 						<TextField
 							fullWidth id="outlined-read-only-input"
 							defaultValue="STTGMA Score"
+							label = "score"
 							value={rounded_sttgma}
 
 							InputProps={{
@@ -91,6 +92,7 @@ export default function STTGMA_Score(props){
                 <Grid item xs={3.5}>
                     <TextField
                       fullWidth id="outlined-read-only-input"
+					  label = "risk"
 					  value = {risk_group}
                       InputProps={{
                         readOnly: true,
