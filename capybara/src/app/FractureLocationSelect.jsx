@@ -4,10 +4,10 @@ import BasicSelect from "./BasicSelect"
 import React, { useState } from 'react';
 import Grid from '@mui/material/Grid'
 
-export default function FractureLocationSelect({ onSelect }) {
+export default function FractureLocationSelect({ onSelect, checkSubtroch }) {
     const handleLocationChange = (selectedOption) => {
       onSelect(selectedOption);
-      console.log({selectedOption})
+      checkSubtroch(selectedOption);
     };
 
     return (

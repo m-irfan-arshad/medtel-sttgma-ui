@@ -171,24 +171,11 @@ export default function Home() {
             </div> 
            </StyledBox>
         </Grid>
-
         
-        <Grid container item xs= {5} direction = "column">
-          <FractureForm/>
-          <hr/>
-          <Grid style= {{marginTop: '20px', marginBottom: '20px'}}>
-              <TextField
-                    fullWidth id="outlined-read-only-input"
-                    defaultValue="Recommended Procedure"
-                    InputProps={{
-                    readOnly: true,
-                    sx: { backgroundColor: '#eaecef'},
-                    }}
-              />
-          </Grid>
+          <FractureForm risk_group = {risk_group}/>
         </Grid>
         
-      </Grid>
+      
     </StyledBox> 
     {/* Close Procedure Box */}
 
