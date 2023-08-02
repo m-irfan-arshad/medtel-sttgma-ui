@@ -33,7 +33,7 @@ export default function BasicSelect(props) {
         >
         {menuItems && menuItems.map((item, index) => {
           return (
-            <MenuItem value={item.charAt(0)} key={index}> {item} </MenuItem>
+            <MenuItem value={item.charAt(0)} key={index} style={{ whiteSpace: 'normal' }} > {item}  </MenuItem>
           );
         })
         }         
