@@ -21,6 +21,7 @@ import AmbSelect from './AmbSelect';
 import Head from "next/head"
 import NextHead from './NextHead'
 import STTGMA_Score from './STTGMA_Score'
+import ToggleImpact from './ToggleImpact';
 
 
 
@@ -49,7 +50,8 @@ export default function Home() {
   const [amb, setAmb] = useState(-1);
   const [sttgmaScore, setSttgma] = useState (-1);
   const [risk_group, setRisk] = useState("Risk Level");
-  
+  const [impact, setImpact] = useState("low")
+
 
 
   return (
@@ -68,13 +70,14 @@ export default function Home() {
 
   <Grid style={{ marginTop: '50px' }}/>
   <StyledBox> 
-
+        
       <Grid container spacing={2} justifyContent = "center">
 
-        <Grid item xs={10} style={{ marginTop: '30px' }}>
+        <Grid item xs={10} style={{ marginTop: '30px', marginBottom: '20px'}}>
 
           <Typography align="center" variant="h4" gutterBottom> STTGMA </Typography>
         </Grid>
+        <ToggleImpact impact = {impact} setImpact = {setImpact}/>
 
           <Grid item xs={10.5}>
             
@@ -108,22 +111,25 @@ export default function Home() {
           setAisHeadNeck={setAisHeadNeck}
           setAisChest={setAisChest}
           setAisExtrem = {setAisExtrem}
+          impact = {impact}
         />
 
       {/* CLOSE AIS Box */}
 
+      
       {/* ASA */}
       <Grid container justifyContent = "center" alignItems = "center" sx= {{marginTop: '40px'}}>
+        {impact === 'low' && ( // Conditionally render the following content if impactVariable is 'low'
         <Grid item xs={10.5}>
           <AsaSelect setAsa = {setAsa}/>
         </Grid>
+        )}
       </Grid>
 
       {/* CCI, AMB, COVID */}
       <Grid container justifyContent="center" alignItems="center" sx={{ marginBottom: '20px' }}>
+      {impact === 'low' && ( // Conditionally render the following content if impactVariable is 'low'
       <Box sx={{ paddingTop: '20px', width: '100%'}}>
-        
-
         <Grid container spacing = {2} justifyContent = "center">
               <Grid item xs={3.5}>
                    <CciModal setCciTotal = {setCciTotal}></CciModal>
@@ -135,8 +141,8 @@ export default function Home() {
                   <CovidSelect setCovidIndex = {setCovidIndex} />
                 </Grid>
         </Grid>
-        
       </Box>
+      )}
       </Grid>
 
       {/* CLOSE CCI, AMB, COVID */}
@@ -145,7 +151,7 @@ export default function Home() {
       <Grid container justifyContent="center" alignItems="center" sx={{ marginBottom: '20px' }}>
       
 
-        <STTGMA_Score age= {age} gcs_total = {gcs_total} ais_head_neck = {ais_head_neck} ais_chest = {ais_chest} cci_index = {cci_total} amb_status = {amb} covid_value = {covid_index} asa = {asa} setSttgma = {setSttgma} sttgmaScore = {sttgmaScore} risk_group = {risk_group} setRisk = {setRisk} />
+        <STTGMA_Score age= {age} gcs_total = {gcs_total} ais_head_neck = {ais_head_neck} ais_chest = {ais_chest} ais_extrem = {ais_extrem} cci_index = {cci_total} amb_status = {amb} covid_value = {covid_index} asa = {asa} setSttgma = {setSttgma} sttgmaScore = {sttgmaScore} risk_group = {risk_group} setRisk = {setRisk} impact = {impact} />
 
       </Grid>
 
