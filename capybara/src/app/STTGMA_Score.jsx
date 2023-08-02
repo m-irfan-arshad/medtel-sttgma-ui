@@ -3,16 +3,12 @@ import React, { useState } from 'react';
 import Grid from '@mui/material/Grid'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
-import RequiredModal from './RequiredModal';
 
 export default function STTGMA_Score(props){
 	const {age, gcs_total, ais_head_neck,ais_chest, ais_extrem, cci_index,amb_status,covid_value,asa, setSttgma, sttgmaScore, risk_group, setRisk, impact} = props
 	const [buttonColor, setButtonColor] = useState('#eaecef');
 	const [textColor, setTextColor] = useState('black');
 	const [rounded_sttgma, setRoundedSttgma] = useState("STTGMA Score");
-	const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
 
 
 	const calculateSTTGMA = (age, gcs_total, ais_head_neck,ais_chest, ais_extrem, cci_index,amb_status,covid_value,asa, impact) => {
@@ -36,13 +32,7 @@ export default function STTGMA_Score(props){
       };
 	
 	  const handleCalculateClick = () => {
-		if(age > -1 && gcs_total > -1 &&  ais_head_neck > -1 && ais_chest > -1 && cci_index > -1 && amb_status > -1 && covid_value > -1 && asa> -1){
-			calculateSTTGMA(age, gcs_total, ais_head_neck, ais_chest, cci_index, amb_status, covid_value, asa);
-		}
-		else{
-			handleOpen()
-		}
-
+		calculateSTTGMA(age, gcs_total, ais_head_neck, ais_chest, ais_extrem, cci_index, amb_status, covid_value, asa, impact);
 	  };
 
 	  const calculateRiskGroup = (sttgmaScore) => {             
@@ -93,7 +83,6 @@ export default function STTGMA_Score(props){
 							sx={{height: '56px', backgroundColor: '#71D57F'}} >
 							Calculate STTGMA
 						</Button>
-						<RequiredModal open = {open} setOpen = {setOpen} handleOpen = {handleOpen} handleClose = {handleClose}/>
 				</Grid>
 				<Grid item xs={3.5}>
 						<TextField
