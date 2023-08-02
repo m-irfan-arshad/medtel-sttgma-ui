@@ -1,35 +1,24 @@
 
 'use client'
 import React, { useState } from 'react';
-import Image from 'next/image'
+import {Grid, Typography, Box} from '@mui/material'
 import styles from './page.module.css'
-import BasicSelect from './BasicSelect'
-import BasicDatePicker from './BasicDatePicker'
-import Grid from '@mui/material/Grid'
-import { Select } from '@mui/material'
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box'
-import StyledBox from './StyledBox'
-import TextField from '@mui/material/TextField'
-import Button from '@mui/material/Button'
-import CciModal from './CciModal'
-import AisScores from './AisScores'
-import CovidSelect from './CovidSelect'
-
-import AgeCalculator from './AgeCalculator'
-import AmbSelect from './AmbSelect';
-import Head from "next/head"
 import NextHead from './NextHead'
-import STTGMA_Score from './STTGMA_Score'
-import ToggleImpact from './ToggleImpact';
 
+import StyledBox from './components/design_helpers/StyledBox'
+import ToggleImpact from './components/data_fields/ToggleImpact';
+import MrnField from './components/data_fields/MrnField'
+import AgeCalculator from './components/data_fields/AgeCalculator'
+import GcsScores from './components/data_fields/GcsScores'
+import AisScores from './components/data_fields/AisScores'
+import AsaSelect from './components/data_fields/low_impact_only/AsaSelect';
+import CciModal from './components/data_fields/CciModal'
+import AmbSelect from './components/data_fields/low_impact_only/AmbSelect';
+import CovidSelect from './components/data_fields/low_impact_only/CovidSelect'
+import STTGMA_Score from './components/STTGMA_Score'
 
-
-import MrnField from './MrnField'
-import FractureForm from './FractureForm'
-import GcsScores from './GcsScores'
-import AsaSelect from './AsaSelect';
-import FileUpload from './FileUpload';
+import FractureForm from './components/procedure/FractureForm'
+import FileUpload from './components/procedure/FileUpload';
 
 
 

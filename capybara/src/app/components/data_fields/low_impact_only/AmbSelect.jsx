@@ -1,7 +1,7 @@
 'use client'
 
 import React, {useState} from 'react';
-import BasicSelect from './BasicSelect';
+import BasicSelect from '../../design_helpers/BasicSelect';
 
 
 export default function AmbSelect({setAmb}) 

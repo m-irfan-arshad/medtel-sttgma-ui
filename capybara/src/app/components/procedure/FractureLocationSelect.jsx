@@ -1,6 +1,6 @@
 "use client"
 
-import BasicSelect from "./BasicSelect"
+import BasicSelect from "../design_helpers/BasicSelect"
 import React, { useState } from 'react';
 import Grid from '@mui/material/Grid'
 

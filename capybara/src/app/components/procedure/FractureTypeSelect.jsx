@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect } from 'react';
-import BasicSelect from './BasicSelect';
+import BasicSelect from '../design_helpers/BasicSelect';
 import Grid from '@mui/material/Grid';
 
 export default function FractureTypeSelect({ selectedLocation, setSelectedType, calcProcedureRec }) {

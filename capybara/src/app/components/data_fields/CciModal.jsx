@@ -1,15 +1,6 @@
 'use client'
 import React, { useState } from 'react';
-import Button from '@mui/material/Button';
-import Modal from '@mui/material/Modal';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import { FormGroup } from '@mui/material';
-import Checkbox from '@mui/material/Checkbox'
-import FormControlLabel from '@mui/material/FormControlLabel'
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import Grid from '@mui/material/Grid'
+import {Button, Modal, Box, Typography, FormGroup, Checkbox, FormControlLabel, DialogActions, Grid} from '@mui/material';
 
 
 export default function CciModal({setCciTotal}) {
