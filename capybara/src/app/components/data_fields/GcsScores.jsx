@@ -1,11 +1,8 @@
 "use client"
 
-import BasicSelect from "./BasicSelect";
+import BasicSelect from "../design_helpers/BasicSelect";
 import React, { useState } from 'react';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box'; // Import Box component from MUI
-import Typography from '@mui/material/Typography'; // Import Typography component from MUI
-import TextField from '@mui/material/TextField'; // Import TextField component from MUI
+import {Grid, TextField} from '@mui/material';
 
 export default function GcsScores({ gcs_total, setGcsTotal }) {
     const [selectedEyeOption, setSelectedEyeOption] = useState(0);

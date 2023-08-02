@@ -1,8 +1,7 @@
 "use client"
 import React, { useState } from 'react';
-import Grid from '@mui/material/Grid'
-import TextField from '@mui/material/TextField'
-import Button from '@mui/material/Button'
+import {Grid, TextField, Button} from "@mui/material"
+
 
 export default function STTGMA_Score(props){
 	const {age, gcs_total, ais_head_neck,ais_chest, ais_extrem, cci_index,amb_status,covid_value,asa, setSttgma, sttgmaScore, risk_group, setRisk, impact} = props

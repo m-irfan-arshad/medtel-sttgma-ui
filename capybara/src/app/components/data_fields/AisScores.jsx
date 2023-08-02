@@ -2,8 +2,8 @@
 
 import React, {useState} from 'react';
 import Box from '@mui/material/Box';
-import BasicSelect from './BasicSelect';
-import StyledBox from './StyledBox';
+import BasicSelect from '../design_helpers/BasicSelect';
+import StyledBox from '../design_helpers/StyledBox';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 

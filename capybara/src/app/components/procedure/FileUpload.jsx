@@ -1,10 +1,8 @@
+"use client"
 import { useState } from "react";
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
-import { Container } from "@mui/material";
-import StyledBox from "./StyledBox";
-import Grid from "@mui/material/Grid";
-import Box from '@mui/material/Box'
+import {Button, Box} from "@mui/material";
+import StyledBox from "../design_helpers/StyledBox";
+
 
 export default function UploadButtons() {
   const [imageUrl, setImageUrl] = useState();

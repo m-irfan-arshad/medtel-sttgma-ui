@@ -1,13 +1,10 @@
 "use client"
 import React, { useState } from 'react';
+import  Grid  from '@mui/material/Grid';
 import FractureLocationSelect from './FractureLocationSelect';
 import FractureTypeSelect from './FractureTypeSelect';
-import  Grid  from '@mui/material/Grid';
-import BasicSelect from './BasicSelect';
-import ProcedureSelect from './ProcedureSelect';
-import TextField from '@mui/material/TextField'
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import { Typography } from '@mui/material';
+import ProcedureSelect from '../../ProcedureSelect';
+
 
 export default function FractureForm({risk_group}) {
   const [selectedLocation, setSelectedLocation] = useState("");
@@ -90,12 +87,8 @@ export default function FractureForm({risk_group}) {
               backgroundColor = {backgroundColor}
               onChange = {handleProcedureChoice}
             />
-          </Grid>
-          {/* {backgroundColor == "#FFFDA3" && <Grid container direction = "row">
-              <InfoOutlinedIcon/>
-              <Typography> more details</Typography>
-          </Grid>} */}
-            
+          </Grid>        
+          
     </Grid>
   );
 }
