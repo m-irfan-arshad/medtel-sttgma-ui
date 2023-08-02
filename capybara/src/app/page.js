@@ -1,4 +1,6 @@
 
+// Home page
+
 'use client'
 import React, { useState } from 'react';
 import {Grid, Typography, Box} from '@mui/material'
@@ -22,12 +24,9 @@ import FileUpload from './components/procedure/FileUpload';
 
 
 
-
-
-
-
 export default function Home() {
 
+  // useState variables
   const [age,setAge] = useState("Age")
   const [gcs_total, setGcsTotal] = useState(-1);
   const [ais_head_neck, setAisHeadNeck] = useState(-1);
@@ -44,57 +43,61 @@ export default function Home() {
 
   return (
     <div>
-    <NextHead/>
-    <main>
+      <NextHead/>
+      <main>
+
+      {/* set background gradient */}
       <div
         className={styles.gradientBackground}
-        // You can adjust the gradient colors and angle as needed
         style={{
           background: 'linear-gradient(45deg, #37b9f7 30%, #3a62f7 90%)',
-          borderRadius: '8px', // Optional: add border-radius for rounded corners
-          padding: '20px', // Optional: add padding to the container
+          borderRadius: '8px',
+          padding: '20px',
         }}
       >
 
   <Grid style={{ marginTop: '50px' }}/>
+
+  {/* STTGMA Box */}
   <StyledBox> 
         
       <Grid container spacing={2} justifyContent = "center">
-
         <Grid item xs={10} style={{ marginTop: '30px', marginBottom: '20px'}}>
-
           <Typography align="center" variant="h4" gutterBottom> STTGMA </Typography>
         </Grid>
+
+        {/* Low Impact vs. High Impact Toggle  */}
         <ToggleImpact impact = {impact} setImpact = {setImpact}/>
 
-          <Grid item xs={10.5}>
-            
-              <MrnField />
-          </Grid>
-          <AgeCalculator age = {age} setAge = {setAge} />
+        {/* MRN Field */}
+        <Grid item xs={10.5}>
+            <MrnField />
         </Grid>
-          
-          
-          {/* GCS Box */}
-        <Grid container justifyContent="center" alignItems="center" sx={{ marginBottom: '20px' }}>
-          <Box sx={{ paddingTop: '20px', width: '100%'}}>
 
+        {/* DOB and Age Fields */}
+        <AgeCalculator age = {age} setAge = {setAge} />
+      </Grid>
+          
+          
+      {/* GCS Box */}
+      <Grid container justifyContent="center" alignItems="center" sx={{ marginBottom: '20px' }}>
+        <Box sx={{ paddingTop: '20px', width: '100%'}}>
           <StyledBox backgroundColor="#f8f9fa">
             <Grid item xs={12} style={{ mar: '10px' }} sx={{ marginBottom: '10px'}}>
-
               <Typography align="center"> GCS Score </Typography>
             </Grid>
 
+            {/* GCS eye, verbal, motor, and total fields*/}
             <GcsScores gcs_total={gcs_total} setGcsTotal={setGcsTotal} /> 
             
         </StyledBox>
-      </Box>
-      </Grid>
-      {/* CLOSE GCS Box */}
+       </Box>
+      </Grid> 
 
       
 
       {/* AIS Box */}
+      {/* Spacing, styledBox, and AIS head and neck, chest, and extremity fields */}
        < AisScores 
           setAisHeadNeck={setAisHeadNeck}
           setAisChest={setAisChest}
@@ -102,12 +105,11 @@ export default function Home() {
           impact = {impact}
         />
 
-      {/* CLOSE AIS Box */}
 
       
       {/* ASA */}
       <Grid container justifyContent = "center" alignItems = "center" sx= {{marginTop: '40px'}}>
-        {impact === 'low' && ( // Conditionally render the following content if impactVariable is 'low'
+        {impact === 'low' && ( // Conditionally render ASA if impact =  'low'
         <Grid item xs={10.5}>
           <AsaSelect setAsa = {setAsa}/>
         </Grid>
@@ -116,11 +118,11 @@ export default function Home() {
 
       {/* CCI, AMB, COVID */}
       <Grid container justifyContent="center" alignItems="center" sx={{ marginBottom: '20px' }}>
-      {impact === 'low' && ( // Conditionally render the following content if impactVariable is 'low'
+      {impact === 'low' && ( // Conditionally render the following if impact is 'low'
       <Box sx={{ paddingTop: '20px', width: '100%'}}>
         <Grid container spacing = {2} justifyContent = "center">
               <Grid item xs={3.5}>
-                   <CciModal setCciTotal = {setCciTotal}></CciModal>
+                  <CciModal setCciTotal = {setCciTotal}></CciModal>
                 </Grid>
                 <Grid item xs={3.5}>
                   <AmbSelect setAmb = {setAmb}/>
@@ -133,23 +135,19 @@ export default function Home() {
       )}
       </Grid>
 
-      {/* CLOSE CCI, AMB, COVID */}
 
-      {/* CAlCULATE STTGMA AND RISK LEVEL  */}
+      {/* STTGMA AND RISK LEVEL  */}
       <Grid container justifyContent="center" alignItems="center" sx={{ marginBottom: '20px' }}>
-      
-
+        {/* STTGMA_Score draws buttons/fields and performs calculations using useState variables from main */}
         <STTGMA_Score age= {age} gcs_total = {gcs_total} ais_head_neck = {ais_head_neck} ais_chest = {ais_chest} ais_extrem = {ais_extrem} cci_index = {cci_total} amb_status = {amb} covid_value = {covid_index} asa = {asa} setSttgma = {setSttgma} sttgmaScore = {sttgmaScore} risk_group = {risk_group} setRisk = {setRisk} impact = {impact} />
-
       </Grid>
 
+  </StyledBox>  {/* Close STTGMA Box */}
 
 
-
-
-  </StyledBox>  {/* Close STTGMA CALC BOX */}
-
+  {/* space between STTGMA and Procedure Boxes */}
   <Grid style={{ marginTop: '20px' }}/>
+
 
   {/* Procedure BOX */}
   <StyledBox>
@@ -160,15 +158,14 @@ export default function Home() {
       <Grid container spacing = {2} style={{ marginBottom: '20px'}} justifyContent="left">
         <Grid item xs = {7} sm = {7}>
           <Typography align="left" color = "#BEBEBE" style= {{marginLeft: '20px'}}> X-RAY Upload </Typography>
-          
-            
+
+          {/* Image Upload component */}
           <FileUpload/>
-
-
         </Grid>
         
-          <FractureForm risk_group = {risk_group}/>
-        </Grid>
+        {/* manages fracture location, type, and procedure fields */}
+        <FractureForm risk_group = {risk_group}/>
+      </Grid>
         
       
     </StyledBox> 
@@ -176,6 +173,6 @@ export default function Home() {
 
       </div> {/* end gradient :) */}
     </main>
-    </div>
+  </div>
   )
 }

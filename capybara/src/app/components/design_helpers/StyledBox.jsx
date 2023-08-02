@@ -1,3 +1,4 @@
+//rounded box that contains all of the content
 
 import React from 'react';
 import Box from '@mui/material/Box';
@@ -5,6 +6,7 @@ import Box from '@mui/material/Box';
 export default function StyledBox(props) {
   return (
     <Box
+      // styling
       sx={{
         border: '1px solid #E0E0E0',
         backgroundColor: props.backgroundColor || 'white',

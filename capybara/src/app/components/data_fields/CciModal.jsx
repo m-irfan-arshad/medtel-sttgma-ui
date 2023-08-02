@@ -1,16 +1,18 @@
+//CCI button and Modal 
 'use client'
 import React, { useState } from 'react';
 import {Button, Modal, Box, Typography, FormGroup, Checkbox, FormControlLabel, DialogActions, Grid} from '@mui/material';
 
 
 export default function CciModal({setCciTotal}) {
+  {/* useState variables */}
   const [open, setOpen] = useState(false);
   const [tempCheckedItems, setTempCheckedItems] = useState({});
   const [checkedItems, setCheckedItems] = useState({});
   const [local_cci_total, setLocalCciTotal] = useState(0);
   const [buttonSaved, setButtonSaved] = useState(false);
 
-
+  // map that matches checkbox names to corresponding values
   const checkboxValues = {
     'Myocardial infarction': 1,
     'Congestive heart failure': 1,
@@ -37,7 +39,8 @@ export default function CciModal({setCciTotal}) {
 
   const handleOpen = () => {
     setOpen(true);
-    setTempCheckedItems(checkedItems); // Copy the current checked state to a temporary state when the modal opens
+    // Copy the current checked state to a temporary state when the modal opens
+    setTempCheckedItems(checkedItems); 
   };
 
   const handleClose = () => {
@@ -48,6 +51,7 @@ export default function CciModal({setCciTotal}) {
 
   const handleCheckboxChange = (event) => {
     const { name, checked } = event.target;
+    //when checked - add to tempCheckedItems
     setTempCheckedItems((prevCheckedItems) => ({
       ...prevCheckedItems,
       [name]: checked,
@@ -67,12 +71,14 @@ export default function CciModal({setCciTotal}) {
         totalScore += checkboxValues[name];
       }
     }
+    //update cci values
     setLocalCciTotal(totalScore);
     setCciTotal(totalScore);
+
     setButtonSaved(true);
   };
 
-
+  // modal styles
   const style = {
     position: 'absolute',
     top: '50%',
@@ -82,24 +88,30 @@ export default function CciModal({setCciTotal}) {
     bgcolor: 'background.paper',
     boxShadow: 24,
     p: 4,
-    borderRadius: '10px', // Customize the corner radius here
+    borderRadius: '10px', 
     maxHeight: '80vh', // Set the maximum height to make the modal scrollable
     overflow: 'auto', // Enable scrolling if content overflows
   };
 
   return (
     <div>
+
+      {/* draw CCI button ... if saved button has been clicked display the CCI value on the button */}
       <Button 
         fullWidth variant="outlined" onClick = {handleOpen} size="large" sx={{height: '56px'}}>
            {buttonSaved ? `${local_cci_total}` : 'CCI'}
       </Button>
+      
+      {/* POP UP  */}
       <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
+
         <Box sx={style}>
+          {/* Headings */}
           <Typography id="modal-modal-title" variant="h4" component="h4">
               Charlson Comorbidity Index Calculator
           </Typography>
@@ -117,12 +129,16 @@ export default function CciModal({setCciTotal}) {
           </Grid>
           <hr />
 
+          {/* CHECKBOXES*/}
           <FormGroup>
             <Grid container spacing={1}>
+
+              {/* Myocardial infarction  */}
               <Grid item xs={11}>
                 <FormControlLabel control={
                   <Checkbox
-                    checked={tempCheckedItems['Myocardial infarction'] || false}
+                    // check if checkBox was already checked
+                    checked={tempCheckedItems['Myocardial infarction'] || false} 
                     onChange={handleCheckboxChange}
                     name="Myocardial infarction"
                   />
@@ -132,7 +148,8 @@ export default function CciModal({setCciTotal}) {
               <Grid item xs={1} alignItems = 'center'>
                 <Typography component = "h6" variant = "h6"> 1 </Typography>
               </Grid>
-
+              
+              {/* Congestive Heart Failure  */}
               <Grid item xs={11}>
                 <FormControlLabel control={
                   <Checkbox
@@ -147,6 +164,7 @@ export default function CciModal({setCciTotal}) {
                 <Typography component = "h6" variant = "h6"> 1 </Typography>
               </Grid>
 
+              {/* Peripheral Vascular disease */}
               <Grid item xs={11}>
                 <FormControlLabel control={
                 <Checkbox
@@ -161,6 +179,7 @@ export default function CciModal({setCciTotal}) {
                 <Typography component = "h6" variant = "h6"> 1 </Typography>
               </Grid>
 
+              {/* Cerebrovascular disease  */}
               <Grid item xs={11}>
                 <FormControlLabel control={
                   <Checkbox
@@ -173,7 +192,8 @@ export default function CciModal({setCciTotal}) {
               <Grid item xs={1} alignItems = 'center'>
                 <Typography component = "h6" variant = "h6"> 1 </Typography>
               </Grid>
-
+              
+              {/* Dementia */}
               <Grid item xs={11}>
                 <FormControlLabel control={
                   <Checkbox
@@ -188,7 +208,7 @@ export default function CciModal({setCciTotal}) {
                 <Typography component = "h6" variant = "h6"> 1 </Typography>
               </Grid>
 
-
+              {/* Chronic pulmonary disease  */}
               <Grid item xs={11}>
                 <FormControlLabel control={
                   <Checkbox
@@ -202,7 +222,8 @@ export default function CciModal({setCciTotal}) {
               <Grid item xs={1} alignItems = 'center'>
                 <Typography component = "h6" variant = "h6"> 1 </Typography>
               </Grid>
-
+              
+              {/* Connective Tissue Disease  */}
               <Grid item xs={11}>
                 <FormControlLabel control={
                   <Checkbox
@@ -217,6 +238,7 @@ export default function CciModal({setCciTotal}) {
                 <Typography component = "h6" variant = "h6"> 1 </Typography>
               </Grid>
 
+              {/* Peptic Ulcer disease */}
               <Grid item xs={11}>
                 <FormControlLabel control={
                   <Checkbox
@@ -230,7 +252,8 @@ export default function CciModal({setCciTotal}) {
               <Grid item xs={1} alignItems = 'center'>
                 <Typography component = "h6" variant = "h6"> 1 </Typography>
               </Grid>
-
+              
+              {/* Mild Liver disease */}
               <Grid item xs={11}>
                 <FormControlLabel control={
                   <Checkbox
@@ -244,7 +267,8 @@ export default function CciModal({setCciTotal}) {
               <Grid item xs={1} alignItems = 'center'>
                 <Typography component = "h6" variant = "h6"> 1 </Typography>
               </Grid>
-
+              
+              {/* Diabetes without */}
               <Grid item xs={11}>
                 <FormControlLabel control={
                   <Checkbox
@@ -260,7 +284,7 @@ export default function CciModal({setCciTotal}) {
               </Grid>
 
 
-
+              {/* Hemiplegia */}
               <Grid item xs={11}>
                 <FormControlLabel control={
                   <Checkbox
@@ -275,6 +299,7 @@ export default function CciModal({setCciTotal}) {
                 <Typography component = "h6" variant = "h6"> 2 </Typography>
               </Grid>
 
+                {/* Renal Disease */}
               <Grid item xs={11}> 
                 <FormControlLabel control={
                   <Checkbox
@@ -288,7 +313,8 @@ export default function CciModal({setCciTotal}) {
               <Grid item xs={1}>
                 <Typography component = "h6" variant = "h6"> 2 </Typography>
               </Grid>
-
+              
+              {/* Diabetes with   */}
               <Grid item xs={11}>
                 <FormControlLabel control={
                   <Checkbox
@@ -303,6 +329,7 @@ export default function CciModal({setCciTotal}) {
                 <Typography component = "h6" variant = "h6"> 2 </Typography>
               </Grid>
 
+              {/* Tumor without metastases  */}
               <Grid item xs={11}>
                 <FormControlLabel control={
                   <Checkbox
@@ -317,6 +344,7 @@ export default function CciModal({setCciTotal}) {
                 <Typography component = "h6" variant = "h6"> 2 </Typography>
               </Grid>
 
+              {/* Leukemia  */}
               <Grid item xs={11}>
                 <FormControlLabel control={
                   <Checkbox
@@ -331,6 +359,7 @@ export default function CciModal({setCciTotal}) {
                 <Typography component = "h6" variant = "h6"> 2 </Typography>
               </Grid>
 
+              {/* Lymphoma  */}
               <Grid item xs={11}>
                 <FormControlLabel control={
                   <Checkbox
@@ -345,6 +374,7 @@ export default function CciModal({setCciTotal}) {
                 <Typography component = "h6" variant = "h6"> 2 </Typography>
               </Grid>
 
+              {/* Moderate or severe liver disease */}
               <Grid item xs={11}>
                 <FormControlLabel control={
                   <Checkbox
@@ -359,6 +389,7 @@ export default function CciModal({setCciTotal}) {
                 <Typography component = "h6" variant = "h6"> 3 </Typography>
               </Grid>
 
+              {/* Metastatic solid tumor  */}
               <Grid item xs={11}>
                 <FormControlLabel control={
                   <Checkbox
@@ -373,6 +404,7 @@ export default function CciModal({setCciTotal}) {
                 <Typography component = "h6" variant = "h6"> 6 </Typography>
               </Grid>
 
+              {/* AIDS  */}
               <Grid item xs={11}>
                 <FormControlLabel control={
                   <Checkbox
@@ -386,10 +418,13 @@ export default function CciModal({setCciTotal}) {
               <Grid item xs={1}>
                 <Typography component = "h6" variant = "h6"> 6 </Typography>
               </Grid>
+
             </Grid>
           </FormGroup>
 
           <hr />
+
+          {/* Cancel and Save buttons */}
           <DialogActions>
             <Button size = "large" onClick={handleClose}>Cancel</Button>
             <Button size = "large" variant="contained" onClick={handleSave}>Save</Button>
