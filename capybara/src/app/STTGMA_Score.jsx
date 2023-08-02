@@ -5,16 +5,26 @@ import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 
 export default function STTGMA_Score(props){
-	const {age, gcs_total, ais_head_neck,ais_chest,cci_index,amb_status,covid_value,asa, setSttgma, sttgmaScore, risk_group, setRisk} = props
+	const {age, gcs_total, ais_head_neck,ais_chest, ais_extrem, cci_index,amb_status,covid_value,asa, setSttgma, sttgmaScore, risk_group, setRisk, impact} = props
 	const [buttonColor, setButtonColor] = useState('#eaecef');
 	const [textColor, setTextColor] = useState('black');
 	const [rounded_sttgma, setRoundedSttgma] = useState("STTGMA Score");
 
 
-	const calculateSTTGMA = (age, gcs_total, ais_head_neck,ais_chest,cci_index,amb_status,covid_value,asa) => {
+	const calculateSTTGMA = (age, gcs_total, ais_head_neck,ais_chest, ais_extrem, cci_index,amb_status,covid_value,asa, impact) => {
+		let sttgma = -1;
+		if (impact == "low")
+		{
 		const sttgma_power = -1 * (-15.76 + 0.026 * age + 0.207 * gcs_total + 0.354 * ais_head_neck + 0.441 * ais_chest + 0.165 * cci_index + 0.335 * amb_status + 2.727 * covid_value + 1.65 * asa);
 		const sttgma_e_val = Math.exp(sttgma_power);
-		const sttgma = 1/(1+ sttgma_e_val)
+		sttgma = 1/(1+ sttgma_e_val)
+		}
+		else if (impact == "high")
+		{
+			const sttgma_power = -1* (-8.6879545905433+0.11330348266168* age -0.366719730310561*gcs_total+0.567879145824016*ais_head_neck+0.414585007141847*ais_chest+0.462928898984966*ais_extrem)
+			const sttgma_e_val = Math.exp(sttgma_power)
+			sttgma = 1/(1 + sttgma_e_val)
+		}
 		setRoundedSttgma(sttgma.toFixed(5));
 		setSttgma(sttgma)
 		calculateRiskGroup(sttgma)
@@ -22,13 +32,11 @@ export default function STTGMA_Score(props){
       };
 	
 	  const handleCalculateClick = () => {
-		calculateSTTGMA(age, gcs_total, ais_head_neck, ais_chest, cci_index, amb_status, covid_value, asa);
+		calculateSTTGMA(age, gcs_total, ais_head_neck, ais_chest, ais_extrem, cci_index, amb_status, covid_value, asa, impact);
 	  };
 
 	  const calculateRiskGroup = (sttgmaScore) => {             
-			let sttgma_percent = sttgmaScore * 100  
-			console.log("sttgma_score:" + sttgmaScore)
-			console.log("sttgma_percent:" + sttgma_percent)                                     
+			let sttgma_percent = sttgmaScore * 100                                    
 			if (sttgma_percent < 0.24)
 			{
 				setButtonColor("#8feba8")
