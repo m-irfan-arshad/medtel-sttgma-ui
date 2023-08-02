@@ -18,7 +18,6 @@ export default function BasicDatePicker(props) {
 
 <FormControl fullWidth>
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      {console.log(typeof props.handleDOBChange)}
         <DatePicker label="Date of Birth" 
         value = {props.dob}
         
