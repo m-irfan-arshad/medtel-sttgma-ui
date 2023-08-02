@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 
 
 
-export default function AisScores({ setAisHeadNeck, setAisChest, setAisExtrem }){
+export default function AisScores({ setAisHeadNeck, setAisChest, setAisExtrem, impact }){
     const handleHeadNeck = (selectedAisHN) => {
         let hn_int = parseInt(selectedAisHN);
         setAisHeadNeck(hn_int);
@@ -67,6 +67,7 @@ export default function AisScores({ setAisHeadNeck, setAisChest, setAisExtrem })
                 </Grid>
         </Grid>
         <Grid container spacing = {2} justifyContent = "center" sx={{ marginBottom: '20px' }}>
+            {impact === 'high' && ( // Conditionally render the following content if impactVariable is 'low'
                 <Grid item xs={12}>
                     <BasicSelect
                     label = {"AIS Extremity/Pelvis"}
@@ -80,6 +81,7 @@ export default function AisScores({ setAisHeadNeck, setAisChest, setAisExtrem })
                         onChange = {handleExtrem}
                     />              
                 </Grid>
+            )}
         </Grid>
 
 
