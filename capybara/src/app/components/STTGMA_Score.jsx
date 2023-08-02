@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import {Grid, TextField, Button} from "@mui/material"
+import RequiredModal from './RequiredModal';
 
 
 export default function STTGMA_Score(props){
@@ -8,25 +9,33 @@ export default function STTGMA_Score(props){
 	const [buttonColor, setButtonColor] = useState('#eaecef');
 	const [textColor, setTextColor] = useState('black');
 	const [rounded_sttgma, setRoundedSttgma] = useState("STTGMA Score");
+	const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
 
 
 	const calculateSTTGMA = (age, gcs_total, ais_head_neck,ais_chest, ais_extrem, cci_index,amb_status,covid_value,asa, impact) => {
+		console.log(impact)
+		if(impact == "low" && age > -1 && gcs_total > -1 &&  ais_head_neck > -1 && ais_chest > -1 && cci_index > -1 && amb_status > -1 && covid_value > -1 && asa> -1){
 		let sttgma = -1;
-		if (impact == "low")
-		{
 		const sttgma_power = -1 * (-15.76 + 0.026 * age + 0.207 * gcs_total + 0.354 * ais_head_neck + 0.441 * ais_chest + 0.165 * cci_index + 0.335 * amb_status + 2.727 * covid_value + 1.65 * asa);
 		const sttgma_e_val = Math.exp(sttgma_power);
 		sttgma = 1/(1+ sttgma_e_val)
-		}
-		else if (impact == "high")
-		{
-			const sttgma_power = -1* (-8.6879545905433+0.11330348266168* age -0.366719730310561*gcs_total+0.567879145824016*ais_head_neck+0.414585007141847*ais_chest+0.462928898984966*ais_extrem)
-			const sttgma_e_val = Math.exp(sttgma_power)
-			sttgma = 1/(1 + sttgma_e_val)
-		}
 		setRoundedSttgma(sttgma.toFixed(5));
 		setSttgma(sttgma)
 		calculateRiskGroup(sttgma)
+		}
+		else if(impact == "high" && age > -1 && gcs_total > -1 &&  ais_head_neck > -1 && ais_chest > -1 && ais_extrem> -1){
+			let sttgma = -1;
+			const sttgma_power = -1* (-8.6879545905433+0.11330348266168* age -0.366719730310561*gcs_total+0.567879145824016*ais_head_neck+0.414585007141847*ais_chest+0.462928898984966*ais_extrem)
+			const sttgma_e_val = Math.exp(sttgma_power)
+			sttgma = 1/(1 + sttgma_e_val)
+			setRoundedSttgma(sttgma.toFixed(5));
+		setSttgma(sttgma)
+		calculateRiskGroup(sttgma)
+		}
+		else{
+			handleOpen()
+		}
 
       };
 	
@@ -82,6 +91,7 @@ export default function STTGMA_Score(props){
 							sx={{height: '56px', backgroundColor: '#71D57F'}} >
 							Calculate STTGMA
 						</Button>
+						<RequiredModal open = {open} setOpen = {setOpen} handleOpen = {handleOpen} />
 				</Grid>
 				<Grid item xs={3.5}>
 						<TextField
