@@ -49,7 +49,7 @@ export default function Home() {
   const [amb, setAmb] = useState(-1);
   const [sttgmaScore, setSttgma] = useState (-1);
   const [risk_group, setRisk] = useState("Risk Level");
-  console.log(asa)
+  
 
 
   return (
