@@ -138,7 +138,6 @@ export default function Home() {
       {/* CAlCULATE STTGMA AND RISK LEVEL  */}
       <Grid container justifyContent="center" alignItems="center" sx={{ marginBottom: '20px' }}>
       
-
         <STTGMA_Score age= {age} gcs_total = {gcs_total} ais_head_neck = {ais_head_neck} ais_chest = {ais_chest} ais_extrem = {ais_extrem} cci_index = {cci_total} amb_status = {amb} covid_value = {covid_index} asa = {asa} setSttgma = {setSttgma} sttgmaScore = {sttgmaScore} risk_group = {risk_group} setRisk = {setRisk} impact = {impact} />
 
       </Grid>

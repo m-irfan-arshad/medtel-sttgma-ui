@@ -10,7 +10,6 @@ import Select from '@mui/material/Select';
 export default function ProcedureSelect(props) {
   const {label, menuItems, onChange, backgroundColor, procedureRec} = props
   const [temp_val, setValue] = React.useState('');
-  console.log(backgroundColor)
 
 
 
