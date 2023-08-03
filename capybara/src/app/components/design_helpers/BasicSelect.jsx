@@ -1,3 +1,4 @@
+//select template
 'use client'
 
 import React, {useState} from 'react';
@@ -9,11 +10,13 @@ export default function BasicSelect(props) {
   const {label, menuItems, onChange} = props
   const [temp_val, setValue] = React.useState('');
 
+  //sets value to the first character of the option (most often a number)
   const handleChange = (event) => {
     setValue(event.target.value.charAt(0));
     if (onChange)
     {
-      onChange(event.target.value); // pass the selected option back to the onChange handler
+      // pass the selected option back to the onChange handler
+      onChange(event.target.value); 
     }
   };
 
@@ -29,6 +32,7 @@ export default function BasicSelect(props) {
           label= {label}
           onChange={handleChange}
         >
+        {/* iterate through the menuItems that were passed through */}
         {menuItems && menuItems.map((item, index) => {
           return (
             <MenuItem value={item.charAt(0)} key={index} style={{ whiteSpace: 'normal' }} > {item}  </MenuItem>

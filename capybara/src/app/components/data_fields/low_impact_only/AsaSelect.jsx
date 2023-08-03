@@ -1,3 +1,4 @@
+//draws Asa select and updates Asa variable
 'use client'
 
 import React, {useState} from 'react';
@@ -7,6 +8,7 @@ import BasicSelect from '../../design_helpers/BasicSelect';
 export default function AsaSelect({setAsa}) 
 {
 
+// function gets selected choice and updates Asa value from main
 const handleAsa = (selectedAsa) => {
     let asa_int = parseInt(selectedAsa);
         setAsa(asa_int);

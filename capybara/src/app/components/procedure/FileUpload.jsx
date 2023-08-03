@@ -7,6 +7,7 @@ import StyledBox from "../design_helpers/StyledBox";
 export default function UploadButtons() {
   const [imageUrl, setImageUrl] = useState();
 
+  // sets imageUrl variable
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
     const reader = new FileReader();
@@ -36,12 +37,11 @@ export default function UploadButtons() {
             />
         </label>
 
-      
+        {/* dispay image using imageUrl variable */}
         <div style={{ position: 'relative', width: '100%', height: '100%' }}>
             {imageUrl && <img src={imageUrl} alt="Uploaded Image" style={{ width: "100%", height: "100%", objectFit: "contain" }} />}
         </div>  
         
-      
 
     </StyledBox>
 
