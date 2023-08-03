@@ -19,7 +19,7 @@ export default function FractureForm({risk_group}) {
     if (selectedType != "" || selectedLocation == 'S')
     { 
       //default background to yellow warning 
-      setBackgroundColor("#FFFDA3")
+      setBackgroundColor("#FFEEA1")
       //check if selectedProcedure matches any of the values in the reccomended procedures array 
       for (let i = 0; i < procedureRec.length; i++) {
         if (procedureRec[i] == selectedProcedure)
@@ -110,9 +110,9 @@ export default function FractureForm({risk_group}) {
         />
       </Grid>  
 
-      {backgroundColor == "#FFFDA3" &&
+      {backgroundColor == "#FFEEA1" &&
       <TextField
-          require
+          require="true"
           id="outlined-multiline-static"
           label="Reason for chosen procedure"
           multiline
