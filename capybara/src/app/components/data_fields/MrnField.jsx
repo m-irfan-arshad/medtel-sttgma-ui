@@ -15,6 +15,7 @@ export default function MrnField() {
       required
       fullWidth
       id="mrn"
+      type = "number"
       label="MRN"
       name="mrn"
       autoComplete="MRN"
