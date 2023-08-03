@@ -28,6 +28,9 @@ export default function Home() {
 
   // useState variables
   const [age,setAge] = useState("Age")
+  const [selectedEye, setSelectedEye] = useState(-1);
+  const [selectedVerbal, setSelectedVerbal] = useState(-1);
+  const [selectedMotor, setSelectedMotor] = useState(-1);
   const [gcs_total, setGcsTotal] = useState(-1);
   const [ais_head_neck, setAisHeadNeck] = useState(-1);
   const [ais_chest, setAisChest] = useState(-1);
@@ -89,7 +92,12 @@ export default function Home() {
             </Grid>
 
             {/* GCS eye, verbal, motor, and total fields*/}
-            <GcsScores gcs_total={gcs_total} setGcsTotal={setGcsTotal} /> 
+            <GcsScores gcs_total={gcs_total} setGcsTotal={setGcsTotal} 
+            setSelectedEye={setSelectedEye} 
+            setSelectedMotor={setSelectedMotor} 
+            setSelectedVerbal = {setSelectedVerbal}
+            
+            /> 
             
         </StyledBox>
        </Box>
@@ -140,7 +148,7 @@ export default function Home() {
       {/* STTGMA AND RISK LEVEL  */}
       <Grid container justifyContent="center" alignItems="center" sx={{ marginBottom: '20px' }}>
         {/* STTGMA_Score draws buttons/fields and performs calculations using useState variables from main */}
-        <STTGMA_Score age= {age} gcs_total = {gcs_total} ais_head_neck = {ais_head_neck} ais_chest = {ais_chest} ais_extrem = {ais_extrem} cci_index = {cci_total} amb_status = {amb} covid_value = {covid_index} asa = {asa} setSttgma = {setSttgma} sttgmaScore = {sttgmaScore} risk_group = {risk_group} setRisk = {setRisk} impact = {impact} />
+        <STTGMA_Score age= {age} selectedEye = {selectedEye} selectedVerbal = {selectedVerbal} selectedMotor = {selectedMotor} gcs_total = {gcs_total} ais_head_neck = {ais_head_neck} ais_chest = {ais_chest} ais_extrem = {ais_extrem} cci_index = {cci_total} amb_status = {amb} covid_value = {covid_index} asa = {asa} setSttgma = {setSttgma} sttgmaScore = {sttgmaScore} risk_group = {risk_group} setRisk = {setRisk} impact = {impact} />
       </Grid>
 
   </StyledBox>  {/* Close STTGMA Box */}
