@@ -3,9 +3,10 @@
 
 'use client'
 import React, { useState } from 'react';
-import {Grid, Typography, Box} from '@mui/material'
+import {Grid, Typography, Box, Button} from '@mui/material'
 import styles from './page.module.css'
 import NextHead from './NextHead'
+import ClearIcon from "@mui/icons-material/Clear"
 
 import StyledBox from './components/design_helpers/StyledBox'
 import ToggleImpact from './components/data_fields/ToggleImpact';
@@ -18,6 +19,7 @@ import CciModal from './components/data_fields/CciModal'
 import AmbSelect from './components/data_fields/low_impact_only/AmbSelect';
 import CovidSelect from './components/data_fields/low_impact_only/CovidSelect'
 import STTGMA_Score from './components/STTGMA_Score'
+
 
 import FractureForm from './components/procedure/FractureForm'
 import FileUpload from './components/procedure/FileUpload';
@@ -41,10 +43,32 @@ export default function Home() {
   const [impact, setImpact] = useState("low")
 
 
+  const handleReset = () => {
+    setAge("Age");
+    setGcsTotal(-1);
+    setAisHeadNeck(-1);
+    setAisChest(-1);
+    setAisExtrem(-1);
+    setCciTotal(-1);
+    setCovidIndex(-1);
+    setAsa(-1);
+    setAmb(-1);
+    setSttgma(-1);
+    setRisk("Risk Level");
+  }
+
+    // Function to handle page refresh
+    const handleRefresh = () => {
+      window.location.reload();
+    };
+
+
+
   return (
     <div>
       <NextHead/>
       <main>
+      
 
       {/* set background gradient */}
       <div
@@ -55,11 +79,20 @@ export default function Home() {
           padding: '20px',
         }}
       >
-
+  
   <Grid style={{ marginTop: '50px' }}/>
 
   {/* STTGMA Box */}
   <StyledBox> 
+
+    {/* Clear All Button */}
+    <Grid container justifyContent = "right">
+      <Grid style = {{marginRight: '10px'}}>
+        <Button  onClick = {handleRefresh} variant = "outlined" endIcon={<ClearIcon />}>
+          Clear All 
+        </Button>
+      </Grid>
+    </Grid>
         
     <Grid container spacing={2} justifyContent = "center">
         <Grid item xs={10} style={{ marginTop: '30px', marginBottom: '10px'}}>
