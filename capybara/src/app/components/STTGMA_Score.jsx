@@ -1,3 +1,4 @@
+//calculate sttgma and display score and risk group
 "use client"
 import React, { useState } from 'react';
 import {Grid, TextField, Button} from "@mui/material"
@@ -14,39 +15,44 @@ export default function STTGMA_Score(props){
 
 
 	const calculateSTTGMA = (age, gcs_total, ais_head_neck,ais_chest, ais_extrem, cci_index,amb_status,covid_value,asa, impact) => {
-		console.log(impact)
+		// if low impact and all neccessary fields were updated
 		if(impact == "low" && age > -1 && gcs_total > -1 &&  ais_head_neck > -1 && ais_chest > -1 && cci_index > -1 && amb_status > -1 && covid_value > -1 && asa> -1){
-		let sttgma = -1;
-		const sttgma_power = -1 * (-15.76 + 0.026 * age + 0.207 * gcs_total + 0.354 * ais_head_neck + 0.441 * ais_chest + 0.165 * cci_index + 0.335 * amb_status + 2.727 * covid_value + 1.65 * asa);
-		const sttgma_e_val = Math.exp(sttgma_power);
-		sttgma = 1/(1+ sttgma_e_val)
-		setRoundedSttgma(sttgma.toFixed(5));
-		setSttgma(sttgma)
-		calculateRiskGroup(sttgma)
+			let sttgma = -1;
+			//calculations
+			const sttgma_power = -1 * (-15.76 + 0.026 * age + 0.207 * gcs_total + 0.354 * ais_head_neck + 0.441 * ais_chest + 0.165 * cci_index + 0.335 * amb_status + 2.727 * covid_value + 1.65 * asa);
+			const sttgma_e_val = Math.exp(sttgma_power);
+			sttgma = 1/(1+ sttgma_e_val)
+			setRoundedSttgma(sttgma.toFixed(5));
+			setSttgma(sttgma)
+			calculateRiskGroup(sttgma)
 		}
+		//if high impact and all neccesary fields were updated
 		else if(impact == "high" && age > -1 && gcs_total > -1 &&  ais_head_neck > -1 && ais_chest > -1 && ais_extrem> -1){
 			let sttgma = -1;
 			const sttgma_power = -1* (-8.6879545905433+0.11330348266168* age -0.366719730310561*gcs_total+0.567879145824016*ais_head_neck+0.414585007141847*ais_chest+0.462928898984966*ais_extrem)
 			const sttgma_e_val = Math.exp(sttgma_power)
 			sttgma = 1/(1 + sttgma_e_val)
 			setRoundedSttgma(sttgma.toFixed(5));
-		setSttgma(sttgma)
-		calculateRiskGroup(sttgma)
+			setSttgma(sttgma)
+			calculateRiskGroup(sttgma)
 		}
 		else{
 			handleOpen()
 		}
 
       };
-	
+	  
+	  //calculate STTGMA when button is clicked
 	  const handleCalculateClick = () => {
 		calculateSTTGMA(age, gcs_total, ais_head_neck, ais_chest, ais_extrem, cci_index, amb_status, covid_value, asa, impact);
 	  };
 
+	  // calculate Risk Group based on STTGMA Score 
 	  const calculateRiskGroup = (sttgmaScore) => {             
 			let sttgma_percent = sttgmaScore * 100                                    
 			if (sttgma_percent < 0.24)
 			{
+				//set risk and corresponding field colors
 				setButtonColor("#8feba8")
 				setTextColor ("black")
 				setRisk("Q1: Low Risk");
@@ -81,6 +87,7 @@ export default function STTGMA_Score(props){
 
 	return (
 			<Grid container spacing = {2} justifyContent = "center">
+				{/* Calculate Button */}
 				<Grid item xs={3.5}>
 						<Button 
 							fullWidth 
@@ -93,6 +100,7 @@ export default function STTGMA_Score(props){
 						</Button>
 						<RequiredModal open = {open} setOpen = {setOpen} handleOpen = {handleOpen} />
 				</Grid>
+				{/* Sttgma Score textfield */}
 				<Grid item xs={3.5}>
 						<TextField
 							fullWidth id="outlined-read-only-input"
@@ -104,12 +112,14 @@ export default function STTGMA_Score(props){
 							}}
 							/>
 				</Grid>
+				{/* Risk Group textfield */}
                 <Grid item xs={3.5}>
                     <TextField
                       fullWidth id="outlined-read-only-input"
 					  value = {risk_group}
                       InputProps={{
                         readOnly: true,
+						//set backgroundColor and textColor as variables
                         sx: { backgroundColor: buttonColor,
 							color: textColor},
                       }}
