@@ -61,14 +61,17 @@ export default function Home() {
   {/* STTGMA Box */}
   <StyledBox> 
         
-      <Grid container spacing={2} justifyContent = "center">
+      <Grid container spacing={2} justifyContent = "center" alignItems = "center">
         <Grid item xs={10} style={{ marginTop: '30px', marginBottom: '20px'}}>
           <Typography align="center" variant="h4" gutterBottom> STTGMA </Typography>
         </Grid>
 
         {/* Low Impact vs. High Impact Toggle  */}
-        <ToggleImpact impact = {impact} setImpact = {setImpact}/>
-
+        <Grid container spacing={2} justifyContent = "center" alignItems = "center">
+          <Grid item xs= {4}>
+            <ToggleImpact impact = {impact} setImpact = {setImpact}/>
+          </Grid>
+        </Grid>
         {/* MRN Field */}
         <Grid item xs={10.5}>
             <MrnField />
