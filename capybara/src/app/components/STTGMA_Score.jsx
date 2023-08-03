@@ -7,8 +7,7 @@ import RequiredModal from './RequiredModal';
 
 export default function STTGMA_Score(props){
 
-	const {age, selectedEye, selectedVerbal, selectedMotor,  gcs_total, ais_head_neck,ais_chest, ais_extrem, cci_index,amb_status,covid_value,asa, setSttgma, sttgmaScore, risk_group, setRisk, impact} = props
-	const {age, gcs_total, ais_head_neck,ais_chest, ais_extrem, cci_index,amb_status,covid_value,asa, setSttgma, sttgmaScore, risk_group, setRisk, impact, rounded_sttgma, setRoundedSttgma} = props
+	const {age, selectedEye, selectedVerbal, selectedMotor,  gcs_total, ais_head_neck,ais_chest, ais_extrem, cci_index,amb_status,covid_value,asa, setSttgma, sttgmaScore, risk_group, setRisk, impact, rounded_sttgma, setRoundedSttgma} = props
 	const [buttonColor, setButtonColor] = useState('#eaecef');
 	const [textColor, setTextColor] = useState('black');
 	const [open, setOpen] = useState(false);
