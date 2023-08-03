@@ -84,7 +84,7 @@ export default function Home() {
         
     <Grid container spacing={2} justifyContent = "center">
         <Grid item xs={10} style={{ marginTop: '30px', marginBottom: '10px'}}>
-          <Typography align="center" variant="h4" gutterBottom> STTGMA </Typography>
+          <Typography align="center" variant="h3" gutterBottom> SurgiRisk </Typography>
         </Grid>
         {/* Low Impact vs. High Impact Toggle  */}
         <Grid item xs={4} container justifyContent="center"> 
