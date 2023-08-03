@@ -110,13 +110,14 @@ export default function FractureForm({risk_group}) {
         />
       </Grid>  
 
+      {backgroundColor == "#FFFDA3" &&
       <TextField
+          require
           id="outlined-multiline-static"
-          label="Multiline"
+          label="Reason for chosen procedure"
           multiline
           rows={4}
-          defaultValue="Default Value"
-      />      
+      /> }  
           
     </Grid>
   );
