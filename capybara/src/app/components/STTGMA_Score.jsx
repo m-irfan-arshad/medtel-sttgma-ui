@@ -6,13 +6,19 @@ import RequiredModal from './RequiredModal';
 
 
 export default function STTGMA_Score(props){
+
 	const {age, selectedEye, selectedVerbal, selectedMotor,  gcs_total, ais_head_neck,ais_chest, ais_extrem, cci_index,amb_status,covid_value,asa, setSttgma, sttgmaScore, risk_group, setRisk, impact} = props
+	const {age, gcs_total, ais_head_neck,ais_chest, ais_extrem, cci_index,amb_status,covid_value,asa, setSttgma, sttgmaScore, risk_group, setRisk, impact, rounded_sttgma, setRoundedSttgma} = props
 	const [buttonColor, setButtonColor] = useState('#eaecef');
 	const [textColor, setTextColor] = useState('black');
-	const [rounded_sttgma, setRoundedSttgma] = useState("STTGMA Score");
 	const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
 
+	// variables that adjust the risk field colors
+	//sets default colors
+	const buttonAdjuster = rounded_sttgma == "STTGMA Score" ? '#eaecef' : buttonColor;
+	//changes text color if risk is Extreme and background is dark red 
+	const textAdjuster = risk_group == "Top 5%: Extreme Risk" ? 'white' : 'black';
 
 	const calculateSTTGMA = (age, gcs_total, ais_head_neck,ais_chest, ais_extrem, cci_index,amb_status,covid_value,asa, impact) => {
 		// if low impact and all neccessary fields were updated
@@ -54,31 +60,26 @@ export default function STTGMA_Score(props){
 			{
 				//set risk and corresponding field colors
 				setButtonColor("#8feba8")
-				setTextColor ("black")
 				setRisk("Q1: Low Risk");
 			}
 			else if (sttgma_percent < 0.68)
 			{
 				setButtonColor("#fff07a")
-				setTextColor ("black")
 				setRisk("Q2: Mild Risk");
 			}
 			else if (sttgma_percent < 1.32)
 			{
 				setButtonColor("#ff8d30")
-				setTextColor ("black")
 				setRisk("Q3: Moderate Risk");
 			}
 			else if (sttgma_percent <6.90)
 			{
 				setButtonColor("#ff765e")
-				setTextColor ("black")
 				setRisk("Q4: Highest Risk");
 			}
 			else 
 			{
 				setButtonColor("#ad0000")
-				setTextColor ("white")
 				setRisk("Top 5%: Extreme Risk");
 			}
 	  }
@@ -120,8 +121,8 @@ export default function STTGMA_Score(props){
                       InputProps={{
                         readOnly: true,
 						//set backgroundColor and textColor as variables
-                        sx: { backgroundColor: buttonColor,
-							color: textColor},
+                        sx: { backgroundColor: buttonAdjuster,
+							color: textAdjuster},
                       }}
                       />
                 </Grid>
