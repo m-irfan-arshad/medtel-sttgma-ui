@@ -61,7 +61,7 @@ export default function Home() {
   {/* STTGMA Box */}
   <StyledBox> 
         
-      <Grid container spacing={2} justifyContent = "center">
+    <Grid container spacing={2} justifyContent = "center">
         <Grid item xs={10} style={{ marginTop: '30px', marginBottom: '10px'}}>
           <Typography align="center" variant="h4" gutterBottom> STTGMA </Typography>
         </Grid>
