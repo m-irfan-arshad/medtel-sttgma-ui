@@ -69,10 +69,11 @@ export default function Home() {
         <Grid item xs={4} container justifyContent="center"> 
           <ToggleImpact impact = {impact} setImpact = {setImpact}/>
         </Grid>
-        {/* MRN Field */}
+        
+        {/* MRN Field
         <Grid item xs={10.5}>
             <MrnField />
-        </Grid>
+        </Grid> */}
 
         {/* DOB and Age Fields */}
         <AgeCalculator age = {age} setAge = {setAge} />
