@@ -3,9 +3,10 @@
 
 'use client'
 import React, { useState } from 'react';
-import {Grid, Typography, Box} from '@mui/material'
+import {Grid, Typography, Box, Button} from '@mui/material'
 import styles from './page.module.css'
 import NextHead from './NextHead'
+import ClearIcon from "@mui/icons-material/Clear"
 
 import StyledBox from './components/design_helpers/StyledBox'
 import ToggleImpact from './components/data_fields/ToggleImpact';
@@ -18,6 +19,7 @@ import CciModal from './components/data_fields/CciModal'
 import AmbSelect from './components/data_fields/low_impact_only/AmbSelect';
 import CovidSelect from './components/data_fields/low_impact_only/CovidSelect'
 import STTGMA_Score from './components/STTGMA_Score'
+
 
 import FractureForm from './components/procedure/FractureForm'
 import FileUpload from './components/procedure/FileUpload';
@@ -37,14 +39,24 @@ export default function Home() {
   const [asa, setAsa] = useState (-1);
   const [amb, setAmb] = useState(-1);
   const [sttgmaScore, setSttgma] = useState (-1);
+  const [rounded_sttgma, setRoundedSttgma] = useState("STTGMA Score");
   const [risk_group, setRisk] = useState("Risk Level");
   const [impact, setImpact] = useState("low")
+
+
+
+    // Function to handle page refresh
+    const handleRefresh = () => {
+      window.location.reload();
+    };
+
 
 
   return (
     <div>
       <NextHead/>
       <main>
+      
 
       {/* set background gradient */}
       <div
@@ -55,11 +67,20 @@ export default function Home() {
           padding: '20px',
         }}
       >
-
+  
   <Grid style={{ marginTop: '50px' }}/>
 
   {/* STTGMA Box */}
   <StyledBox> 
+
+    {/* Clear All Button */}
+    <Grid container justifyContent = "right">
+      <Grid style = {{marginRight: '10px'}}>
+        <Button  onClick = {handleRefresh} variant = "outlined" endIcon={<ClearIcon />}>
+          Clear All 
+        </Button>
+      </Grid>
+    </Grid>
         
     <Grid container spacing={2} justifyContent = "center">
         <Grid item xs={10} style={{ marginTop: '30px', marginBottom: '10px'}}>
@@ -67,7 +88,7 @@ export default function Home() {
         </Grid>
         {/* Low Impact vs. High Impact Toggle  */}
         <Grid item xs={4} container justifyContent="center"> 
-          <ToggleImpact impact = {impact} setImpact = {setImpact}/>
+          <ToggleImpact impact = {impact} setImpact = {setImpact} setRoundedSttgma = {setRoundedSttgma} setRisk = {setRisk}/>
         </Grid>
         
         {/* MRN Field
@@ -140,7 +161,7 @@ export default function Home() {
       {/* STTGMA AND RISK LEVEL  */}
       <Grid container justifyContent="center" alignItems="center" sx={{ marginBottom: '20px' }}>
         {/* STTGMA_Score draws buttons/fields and performs calculations using useState variables from main */}
-        <STTGMA_Score age= {age} gcs_total = {gcs_total} ais_head_neck = {ais_head_neck} ais_chest = {ais_chest} ais_extrem = {ais_extrem} cci_index = {cci_total} amb_status = {amb} covid_value = {covid_index} asa = {asa} setSttgma = {setSttgma} sttgmaScore = {sttgmaScore} risk_group = {risk_group} setRisk = {setRisk} impact = {impact} />
+        <STTGMA_Score age= {age} gcs_total = {gcs_total} ais_head_neck = {ais_head_neck} ais_chest = {ais_chest} ais_extrem = {ais_extrem} cci_index = {cci_total} amb_status = {amb} covid_value = {covid_index} asa = {asa} setSttgma = {setSttgma} sttgmaScore = {sttgmaScore} risk_group = {risk_group} setRisk = {setRisk} impact = {impact} rounded_sttgma = {rounded_sttgma} setRoundedSttgma = {setRoundedSttgma}/>
       </Grid>
 
   </StyledBox>  {/* Close STTGMA Box */}

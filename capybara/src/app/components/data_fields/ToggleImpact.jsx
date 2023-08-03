@@ -2,11 +2,14 @@
 import * as React from 'react';
 import {ToggleButton, ToggleButtonGroup, Typography} from '@mui/material';
 
-export default function ToggleImpact({impact, setImpact}) {
+export default function ToggleImpact({impact, setImpact, setRoundedSttgma, setRisk}) {
 
   //update impact variable from main based on toggle selection 
   const handleImpact = (event, selectedImpact) => {
     setImpact(selectedImpact);
+    setRoundedSttgma ("STTGMA Score")
+    setRisk ("Risk Level")
+    
   };
 
   return (
