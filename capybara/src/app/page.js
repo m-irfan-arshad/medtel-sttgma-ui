@@ -62,13 +62,13 @@ export default function Home() {
   <StyledBox> 
         
       <Grid container spacing={2} justifyContent = "center">
-        <Grid item xs={10} style={{ marginTop: '30px', marginBottom: '20px'}}>
+        <Grid item xs={10} style={{ marginTop: '30px', marginBottom: '10px'}}>
           <Typography align="center" variant="h4" gutterBottom> STTGMA </Typography>
         </Grid>
-
         {/* Low Impact vs. High Impact Toggle  */}
-        <ToggleImpact impact = {impact} setImpact = {setImpact}/>
-
+        <Grid item xs={4} container justifyContent="center"> 
+          <ToggleImpact impact = {impact} setImpact = {setImpact}/>
+        </Grid>
         {/* MRN Field */}
         <Grid item xs={10.5}>
             <MrnField />

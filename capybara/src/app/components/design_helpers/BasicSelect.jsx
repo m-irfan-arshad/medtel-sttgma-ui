@@ -10,6 +10,7 @@ export default function BasicSelect(props) {
   const {label, menuItems, onChange} = props
   const [temp_val, setValue] = React.useState('');
 
+
   //sets value to the first character of the option (most often a number)
   const handleChange = (event) => {
     setValue(event.target.value.charAt(0));
