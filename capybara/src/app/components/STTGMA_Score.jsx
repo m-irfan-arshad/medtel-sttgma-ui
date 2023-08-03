@@ -6,7 +6,8 @@ import RequiredModal from './RequiredModal';
 
 
 export default function STTGMA_Score(props){
-	const {age, gcs_total, ais_head_neck,ais_chest, ais_extrem, cci_index,amb_status,covid_value,asa, setSttgma, sttgmaScore, risk_group, setRisk, impact, rounded_sttgma, setRoundedSttgma} = props
+
+	const {age, selectedEye, selectedVerbal, selectedMotor,  gcs_total, ais_head_neck,ais_chest, ais_extrem, cci_index,amb_status,covid_value,asa, setSttgma, sttgmaScore, risk_group, setRisk, impact, rounded_sttgma, setRoundedSttgma} = props
 	const [buttonColor, setButtonColor] = useState('#eaecef');
 	const [textColor, setTextColor] = useState('black');
 	const [open, setOpen] = useState(false);
@@ -20,7 +21,7 @@ export default function STTGMA_Score(props){
 
 	const calculateSTTGMA = (age, gcs_total, ais_head_neck,ais_chest, ais_extrem, cci_index,amb_status,covid_value,asa, impact) => {
 		// if low impact and all neccessary fields were updated
-		if(impact == "low" && age > -1 && gcs_total > -1 &&  ais_head_neck > -1 && ais_chest > -1 && cci_index > -1 && amb_status > -1 && covid_value > -1 && asa> -1){
+		if(impact == "low" && age > -1  && selectedEye > -1  && selectedVerbal> -1  && selectedMotor > -1&& gcs_total > -1 &&  ais_head_neck > -1 && ais_chest > -1 && cci_index > -1 && amb_status > -1 && covid_value > -1 && asa> -1){
 			let sttgma = -1;
 			//calculations
 			const sttgma_power = -1 * (-15.76 + 0.026 * age + 0.207 * gcs_total + 0.354 * ais_head_neck + 0.441 * ais_chest + 0.165 * cci_index + 0.335 * amb_status + 2.727 * covid_value + 1.65 * asa);
