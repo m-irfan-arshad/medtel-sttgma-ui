@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
+//Same style as the CCI modal
 const style = {
     position: 'absolute',
     top: '50%',
@@ -17,7 +18,9 @@ const style = {
     overflow: 'auto', // Enable scrolling if content overflows
   };
 
+
 export default function RequiredModal(props) {
+  //takes the open var from STTGMA
     const [open, setOpen] = [props.open, props.setOpen]
     const handleOpen = () => props.handleOpen
     const handleClose = () => setOpen(false)
@@ -25,12 +28,15 @@ export default function RequiredModal(props) {
     return (
       <div>
         <Modal
+        //sets the state of the modal
           open={open}
+        //closes the modal when clicked off
           onClose={handleClose}
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
           <Box sx={style}>
+            {/* Text within the modal */}
             <Typography id="modal-modal-title" variant="h6" component="h2">
               Please fill out all required fields
             </Typography>

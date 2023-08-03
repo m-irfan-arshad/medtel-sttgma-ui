@@ -6,7 +6,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import FormControl from '@mui/material/FormControl';
 import { styled } from '@mui/system';
 
-
+//takes a muit date picker and exports it as a function
 export default function BasicDatePicker(props) {
   const CenteredFormControl = styled(FormControl)({
     display: 'flex',
@@ -17,7 +17,7 @@ export default function BasicDatePicker(props) {
 
 <FormControl fullWidth>
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      {console.log(typeof props.handleDOBChange)}
+      {/* Labels the date picker as Date of Birth */}
         <DatePicker label="Date of Birth" 
         value = {props.dob}
         
