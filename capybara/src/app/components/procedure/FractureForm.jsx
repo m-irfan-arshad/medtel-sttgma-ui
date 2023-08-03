@@ -1,7 +1,7 @@
 //calls all the drop downs in the procedure box
 "use client"
 import React, { useState } from 'react';
-import Grid  from '@mui/material/Grid';
+import {Grid, TextField}  from '@mui/material';
 import FractureLocationSelect from './FractureLocationSelect';
 import FractureTypeSelect from './FractureTypeSelect';
 import ProcedureSelect from './ProcedureSelect';
@@ -108,7 +108,16 @@ export default function FractureForm({risk_group}) {
           backgroundColor = {backgroundColor}
           onChange = {handleProcedureChoice}
         />
-      </Grid>        
+      </Grid>  
+
+      {backgroundColor == "#FFFDA3" &&
+      <TextField
+          require
+          id="outlined-multiline-static"
+          label="Reason for chosen procedure"
+          multiline
+          rows={4}
+      /> }  
           
     </Grid>
   );
