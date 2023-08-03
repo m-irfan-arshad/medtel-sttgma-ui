@@ -5,7 +5,7 @@ import BasicSelect from "../design_helpers/BasicSelect";
 import React, { useState } from 'react';
 import {Grid, TextField} from '@mui/material';
 
-export default function GcsScores({ gcs_total, setGcsTotal }) {
+export default function GcsScores({ gcs_total, setGcsTotal,setSelectedEye,setSelectedVerbal,setSelectedMotor }) {
     const [selectedEyeOption, setSelectedEyeOption] = useState(0);
     const [selectedVerbalOption, setSelectedVerbalOption] = useState(0);
     const [selectedMotorOption, setSelectedMotorOption] = useState(0);
@@ -16,6 +16,7 @@ export default function GcsScores({ gcs_total, setGcsTotal }) {
         // cast selection to an int 
         let eye_int = parseInt(selectedEyeOption);
         setSelectedEyeOption(eye_int);
+        setSelectedEye(eye_int);
         calculateTotalScore(selectedEyeOption, selectedVerbalOption, selectedMotorOption);
       };
     
@@ -24,6 +25,7 @@ export default function GcsScores({ gcs_total, setGcsTotal }) {
         //cast selection to an int 
         let verbal_int = parseInt(selectedVerbalOption);
         setSelectedVerbalOption(verbal_int);
+        setSelectedVerbal(verbal_int);
         calculateTotalScore(selectedEyeOption, selectedVerbalOption, selectedMotorOption);
       };
     
@@ -32,6 +34,7 @@ export default function GcsScores({ gcs_total, setGcsTotal }) {
         //cast selection to an int 
         let motor_int = parseInt(selectedMotorOption);
         setSelectedMotorOption(motor_int);
+        setSelectedMotor(motor_int);
         calculateTotalScore(selectedEyeOption, selectedVerbalOption, selectedMotorOption);
     };
     const calculateTotalScore = (eye, verbal, motor) => {
